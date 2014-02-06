@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1053a628-4066-4887-828f-b95e7eac8910" name="Default" comment="updated .gitignore file and removed workspace.xml">
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/untitled.iml" afterPath="$PROJECT_DIR$/.idea/untitled.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -19,10 +16,10 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/untitled@Development__untitled.coverage" NAME="Development: untitled Coverage Results" MODIFIED="1391507672679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="untitled" />
-    <SUITE FILE_PATH="coverage/untitled@spec__untitled.coverage" NAME="spec: untitled Coverage Results" MODIFIED="1390811490002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="untitled" />
     <SUITE FILE_PATH="coverage/untitled@IRB_console__untitled.coverage" NAME="IRB console: untitled Coverage Results" MODIFIED="1390811709471" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="untitled" />
-    <SUITE FILE_PATH="coverage/untitled@All_tests_in_Housing4u_Appfolio__untitled.coverage" NAME="All tests in Housing4u-Appfolio: untitled Coverage Results" MODIFIED="1390810511079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="untitled" />
+    <SUITE FILE_PATH="coverage/untitled@spec__untitled.coverage" NAME="spec: untitled Coverage Results" MODIFIED="1390811490002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="untitled" />
     <SUITE FILE_PATH="coverage/untitled@test__untitled.coverage" NAME="test: untitled Coverage Results" MODIFIED="1390811479385" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="untitled" />
+    <SUITE FILE_PATH="coverage/untitled@All_tests_in_Housing4u_Appfolio__untitled.coverage" NAME="All tests in Housing4u-Appfolio: untitled Coverage Results" MODIFIED="1390810511079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="untitled" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -48,7 +45,7 @@
       <file leaf-file-name="database.yml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/database.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
               <folding />
             </state>
           </provider>
@@ -57,7 +54,7 @@
       <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="20" selection-start="115" selection-end="115" vertical-scroll-proportion="0.08121019" vertical-offset="0" max-vertical-offset="867">
+            <state line="26" column="12" selection-start="636" selection-end="636" vertical-scroll-proportion="0.70382166" vertical-offset="0" max-vertical-offset="884">
               <folding />
             </state>
           </provider>
@@ -116,6 +113,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -136,8 +135,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="RailsProjectView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -382,9 +379,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32991803" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32991803" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31790122" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287037" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -424,6 +421,27 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/database.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="20" selection-start="115" selection-end="115" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="884">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
@@ -597,11 +615,11 @@
             <node x="" y="">treetop</node>
             <node x="" y="">rake</node>
             <node x="" y="">arel</node>
-            <node x="" y="">polyglot</node>
             <node x="" y="">minitest</node>
+            <node x="" y="">polyglot</node>
             <node x="" y="">actionpack</node>
-            <node x="" y="">coffee-script</node>
             <node x="" y="">rack</node>
+            <node x="" y="">coffee-script</node>
             <node x="" y="">sass-rails</node>
             <node x="" y="">actionmailer</node>
             <node x="" y="">activerecord</node>
@@ -615,8 +633,8 @@
             <node x="" y="">rack-test</node>
             <node x="" y="">#untitled</node>
             <node x="" y="">multi_json</node>
-            <node x="" y="">mime-types</node>
             <node x="" y="">sdoc</node>
+            <node x="" y="">mime-types</node>
             <node x="" y="">mail</node>
             <node x="" y="">jbuilder</node>
             <node x="" y="">railties</node>
@@ -624,19 +642,19 @@
             <node x="" y="">execjs</node>
             <node x="" y="">builder</node>
             <node x="" y="">jquery-rails</node>
-            <node x="" y="">coffee-script-source</node>
             <node x="" y="">thor</node>
+            <node x="" y="">coffee-script-source</node>
             <node x="" y="">activemodel</node>
-            <node x="" y="">sprockets</node>
-            <node x="" y="">sprockets-rails</node>
             <node x="" y="">activesupport</node>
-            <node x="" y="">coffee-rails</node>
+            <node x="" y="">sprockets-rails</node>
+            <node x="" y="">sprockets</node>
             <node x="" y="">uglifier</node>
-            <node x="" y="">bundler</node>
+            <node x="" y="">coffee-rails</node>
             <node x="" y="">rdoc</node>
+            <node x="" y="">bundler</node>
             <node x="" y="">i18n</node>
-            <node x="" y="">hike</node>
             <node x="" y="">turbolinks</node>
+            <node x="" y="">hike</node>
           </nodes>
           <notes />
           <edges />
@@ -663,7 +681,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="20" selection-start="115" selection-end="115" vertical-scroll-proportion="0.08121019" vertical-offset="0" max-vertical-offset="867">
+        <state line="26" column="12" selection-start="636" selection-end="636" vertical-scroll-proportion="0.70382166" vertical-offset="0" max-vertical-offset="884">
           <folding />
         </state>
       </provider>
