@@ -1,14 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Untitled</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <title><%= yield(:title) %></title>
+  <%= stylesheet_link_tag    "application", media: "all"  %>
+  <%= javascript_include_tag "application"  %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-<%= yield %>
+<body role="document">
+
+<!-- Fixed navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Housing-4U</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="<%= controller.class == HomeController and controller.action_name == 'index' ? 'active' : '' %>"><a href="/">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Nav header</li>
+            <li><a href="#">Separated link</a></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+        <% if user_signed_in? %>
+            <li ><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+            <li class="<%= request.path == new_user_session_path ? 'active' : '' %>"><%= link_to "Sign in", new_user_session_path %></li>
+            <li class="<%= request.path == new_user_registration_path ? 'active' : '' %>"><%= link_to "Sign up", new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<div class="container container-space" role="main">
+
+  <% if notice %>
+    <span class="alert alert-info"><%= notice %></span>
+  <% end %>
+  <% if alert %>
+    <span class="alert alert-danger"><%= alert %></span>
+  <% end %>
+
+  <%= yield %>
+
+</div>
 
 </body>
 </html>
