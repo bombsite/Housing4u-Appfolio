@@ -15,4 +15,6 @@
 /log/*.log
 /tmp
 
-.idea/
+# Ignore .idea
+/.idea/workspace.xml
+/.idea/tasks.xml
