@@ -50,10 +50,14 @@
 <div class="container container-space" role="main">
 
   <% if notice %>
-    <span class="alert alert-info"><%= notice %></span>
+      <div class="row">
+        <div class="span4 alert alert-info"><%= notice %></div>
+      </div>
   <% end %>
   <% if alert %>
-    <span class="alert alert-danger"><%= alert %></span>
+      <div class="row">
+        <div class="span4 alert alert-danger"><%= alert %></div>
+      </div>
   <% end %>
 
   <%= yield %>
