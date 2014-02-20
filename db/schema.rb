@@ -11,11 +11,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140203002558) do
+ActiveRecord::Schema.define(version: 20140219000003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "adminpack"
+
+  create_table "cities", force: true do |t|
+    t.string  "name"
+    t.integer "state_id"
+  end
+
+  create_table "states", force: true do |t|
+    t.string "name"
+  end
+
+  create_table "units", force: true do |t|
+    t.integer "user_id"
+    t.string  "appfolio_reference_id"
+    t.string  "appfolio_category"
+    t.boolean "allow_email_contact",   default: true,  null: false
+    t.boolean "show_address",          default: true,  null: false
+    t.boolean "show_map",              default: true,  null: false
+    t.boolean "multi_unit",            default: false, null: false
+    t.string  "ad_headline"
+    t.string  "ad_content"
+    t.string  "property_address"
+    t.string  "property_postal_code"
+    t.string  "tour_video"
+    t.integer "city_id"
+    t.integer "state_id"
+    t.float   "rent_max"
+    t.float   "square_foot_min"
+    t.float   "bedrooms"
+    t.float   "bathrooms"
+    t.float   "deposit_max"
+    t.date    "availability_date"
+    t.float   "lease_application_fee"
+    t.string  "amenities"
+    t.boolean "active",                default: true,  null: false
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -28,11 +63,28 @@ ActiveRecord::Schema.define(version: 20140203002558) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.integer  "failed_attempts",        default: 0,  null: false
+    t.string   "unlock_token"
+    t.datetime "locked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "phone_number"
+    t.string   "company_name"
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
+
+  add_foreign_key "cities", "states", name: "cities_state_id_fk"
+
+  add_foreign_key "units", "cities", name: "units_city_id_fk"
+  add_foreign_key "units", "states", name: "units_state_id_fk"
+  add_foreign_key "units", "users", name: "units_user_id_fk"
 
 end
