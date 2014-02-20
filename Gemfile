@@ -27,6 +27,12 @@ gem 'pg'
 #devise (UA)
 gem 'devise'
 
+#nokogiri
+gem 'nokogiri'
+
+#db foreigner
+gem 'foreigner'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
