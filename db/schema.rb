@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140219000003) do
+ActiveRecord::Schema.define(version: 20140219000004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(version: 20140219000003) do
 
   create_table "states", force: true do |t|
     t.string "name"
+  end
+
+  create_table "unit_photos", force: true do |t|
+    t.integer "unit_id",       null: false
+    t.string  "image_url",     null: false
+    t.string  "image_caption"
   end
 
   create_table "units", force: true do |t|
@@ -82,6 +88,8 @@ ActiveRecord::Schema.define(version: 20140219000003) do
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
   add_foreign_key "cities", "states", name: "cities_state_id_fk"
+
+  add_foreign_key "unit_photos", "units", name: "unit_photos_unit_id_fk"
 
   add_foreign_key "units", "cities", name: "units_city_id_fk"
   add_foreign_key "units", "states", name: "units_state_id_fk"
