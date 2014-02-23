@@ -7,8 +7,7 @@ namespace :housing4u do
   task :appfolio_import => :environment do
 
     unless File.exist?("#{Rails.root}/lib/assets/mits.xml")
-      puts 'Make sure the mits.xml file is in the assets dir.'
-      next
+      fail 'Make sure the mits.xml file is in the assets dir.'
     end
 
     #ensure mits file exists
