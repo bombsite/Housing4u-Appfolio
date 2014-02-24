@@ -3,7 +3,7 @@ module ImportHelper
 
   def find_number_of_bedrooms(ad)
 
-    @name
+    @name = nil
     ad.xpath('unitinfo/*').each do |i|
 
       if i.name() =~ /propertybedrooms\d\d?/
@@ -12,16 +12,18 @@ module ImportHelper
       end
     end
 
-    @name = @name[16..-1].to_i
-
-    #returns num_bedrooms
-    @name = @name > 9 ? @name / 10.0 : @name
+    if @name.nil?
+      nil
+    else
+      @name = @name[16..-1].to_i
+      @name = @name > 9 ? @name / 10.0 : @name
+    end
 
   end
 
   def find_number_of_bathrooms(ad)
 
-    @name
+    @name = nil
     ad.xpath('unitinfo/*').each do |i|
 
       if i.name() =~ /propertybathrooms\d\d?/
@@ -30,10 +32,12 @@ module ImportHelper
       end
     end
 
-    @name = @name[17..-1].to_i
-
-    #returns num_bedrooms
-    @name = @name > 9 ? @name / 10.0 : @name
+    if @name.nil?
+      nil
+    else
+      @name = @name[17..-1].to_i
+      @name = @name > 9 ? @name / 10.0 : @name
+    end
 
   end
 

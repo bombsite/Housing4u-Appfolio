@@ -3,15 +3,15 @@ include ImportHelper
 
 namespace :housing4u do
 
-  desc 'runs an importer on /lib/assets/mits2.xml'
+  desc 'runs an importer on /lib/assets/mits.xml'
   task :appfolio_import => :environment do
 
-    unless File.exist?("#{Rails.root}/lib/assets/mits2.xml")
+    unless File.exist?("#{Rails.root}/lib/assets/mits.xml")
       fail 'Make sure the mits.xml file is in the assets dir.'
     end
 
     #ensure mits file exists
-    doc = Nokogiri::XML(File.open("#{Rails.root}/lib/assets/mits2.xml"))
+    doc = Nokogiri::XML(File.open("#{Rails.root}/lib/assets/mits.xml"))
 
     #loop through each rental add
     doc.xpath('//adlist/rentalad').each do |i|
@@ -40,7 +40,7 @@ namespace :housing4u do
       @bathrooms = ImportHelper.find_number_of_bathrooms(i)
 
       #generate availability date
-      @avail_date = Date.strptime(i.xpath('unitinfo/propertyavailabilitydate').text,"%m-%d-%Y").to_time
+      @avail_date = Date.strptime(i.xpath('unitinfo/propertyavailabilitydate').text,"%m-%d-%Y").to_time rescue nil
 
       #puts @avail_date
       #break
