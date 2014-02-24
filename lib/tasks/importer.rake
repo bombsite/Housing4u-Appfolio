@@ -40,7 +40,7 @@ namespace :housing4u do
       @bathrooms = ImportHelper.find_number_of_bathrooms(i)
 
       #generate availability date
-      @avail_date = Date.strptime(i.xpath('unitinfo/propertyavailabilitydate').text,"%m-%d-%Y").to_time
+      @avail_date = Date.strptime(i.xpath('unitinfo/propertyavailabilitydate').text,"%m-%d-%Y").to_time rescue nil
 
       #puts @avail_date
       #break
