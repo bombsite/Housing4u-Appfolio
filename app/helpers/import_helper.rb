@@ -12,10 +12,12 @@ module ImportHelper
       end
     end
 
-    @name = @name[16..-1].to_i
-
-    #returns num_bedrooms
-    @name = @name > 9 ? @name / 10.0 : @name
+    if @name.nil?
+      null
+    else
+      @name = @name[16..-1].to_i
+      @name = @name > 9 ? @name / 10.0 : @name
+    end
 
   end
 
@@ -30,10 +32,12 @@ module ImportHelper
       end
     end
 
-    @name = @name[17..-1].to_i
-
-    #returns num_bedrooms
-    @name = @name > 9 ? @name / 10.0 : @name
+    if @name.nil?
+      null
+    else
+      @name = @name[17..-1].to_i
+      @name = @name > 9 ? @name / 10.0 : @name
+    end
 
   end
 
