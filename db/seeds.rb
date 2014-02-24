@@ -6,6 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+#see : http://stackoverflow.com/questions/8342642/how-can-i-import-a-sql-file-into-a-rails-database
+
 #order of below is important due to foreign key constraints
 ActiveRecord::Base.connection.execute(IO.read("#{Rails.root}/db/appfolio_seeds/users.sql"))
 
