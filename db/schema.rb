@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140219000005) do
+ActiveRecord::Schema.define(version: 20140223000007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20140219000005) do
 
   create_table "unit_photos", force: true do |t|
     t.integer "unit_id",       null: false
-    t.string  "image_url",     null: false
-    t.string  "image_caption"
+    t.text    "image_url",     null: false
+    t.text    "image_caption"
   end
 
   create_table "units", force: true do |t|
@@ -40,11 +40,11 @@ ActiveRecord::Schema.define(version: 20140219000005) do
     t.boolean  "show_address",          default: true,  null: false
     t.boolean  "show_map",              default: true,  null: false
     t.boolean  "multi_unit",            default: false, null: false
-    t.string   "ad_headline"
-    t.string   "ad_content"
-    t.string   "property_address"
+    t.text     "ad_headline"
+    t.text     "ad_content"
+    t.text     "property_address"
     t.string   "property_postal_code"
-    t.string   "tour_video"
+    t.text     "tour_video"
     t.integer  "city_id"
     t.integer  "state_id"
     t.float    "rent_max"
@@ -52,9 +52,9 @@ ActiveRecord::Schema.define(version: 20140219000005) do
     t.float    "bedrooms"
     t.float    "bathrooms"
     t.float    "deposit_max"
-    t.date     "availability_date"
+    t.datetime "availability_date"
     t.float    "lease_application_fee"
-    t.string   "amenities"
+    t.text     "amenities"
     t.boolean  "active",                default: true,  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
