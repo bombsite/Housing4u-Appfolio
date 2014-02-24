@@ -13,7 +13,7 @@ module ImportHelper
     end
 
     if @name.nil?
-      null
+      nil
     else
       @name = @name[16..-1].to_i
       @name = @name > 9 ? @name / 10.0 : @name
@@ -33,7 +33,7 @@ module ImportHelper
     end
 
     if @name.nil?
-      null
+      nil
     else
       @name = @name[17..-1].to_i
       @name = @name > 9 ? @name / 10.0 : @name
