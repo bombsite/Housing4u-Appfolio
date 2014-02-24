@@ -3,7 +3,7 @@ module ImportHelper
 
   def find_number_of_bedrooms(ad)
 
-    @name
+    @name = nil
     ad.xpath('unitinfo/*').each do |i|
 
       if i.name() =~ /propertybedrooms\d\d?/
@@ -23,7 +23,7 @@ module ImportHelper
 
   def find_number_of_bathrooms(ad)
 
-    @name
+    @name = nil
     ad.xpath('unitinfo/*').each do |i|
 
       if i.name() =~ /propertybathrooms\d\d?/
