@@ -40,10 +40,14 @@ namespace :housing4u do
       @bathrooms = ImportHelper.find_number_of_bathrooms(i)
 
       #generate availability date
-      @avail_date = Date.strptime(i.xpath('unitinfo/propertyavailabilitydate').text,"%m-%d-%Y").to_time.to_i
+      @avail_date = Date.strptime(i.xpath('unitinfo/propertyavailabilitydate').text,"%m-%d-%Y").to_time
+
+      #puts @avail_date
+      #break
 
       #create unit
-      @unit = Unit.new( appfolio_reference_id: i.xpath('metainfo/customeradreference').text,
+      @unit = Unit.new( user_id: @user.id,
+                        appfolio_reference_id: i.xpath('metainfo/customeradreference').text,
                         appfolio_category: i.xpath('requiredinfo/category').text,
                         allow_email_contact: i.xpath('metainfo/optionallowemailcontact').text.to_i == 1,
                         show_address: i.xpath('metainfo/optionshowaddress').text.to_i == 1,
@@ -62,7 +66,7 @@ namespace :housing4u do
                         bathrooms: @bathrooms,
                         deposit_max: i.xpath('unitinfo/propertydepositmax').text,
                         availability_date: @avail_date,
-                        lease_application_fee: i.xpath('unitinfo/leaseapplicationfee').text,
+                        lease_application_fee: i.xpath('leaseinfo/leaseapplicationfee').text,
                         amenities: i.xpath('features/amenityothername1').text,
                         active: i.xpath('metainfo/adactive').text.to_i == 1)
       @unit.save
