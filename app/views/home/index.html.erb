@@ -1,11 +1,116 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
-  <h1>Hello, world!</h1>
-  <p>Welcome to Housing4U</p>
-  <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+  <h1>Welcome to Housing4U</h1>
 </div>
 
 <% title "Homepage" %>
+
+<div class="price" >test</div>
+
+<h2>Default</h2>
+<div class="pagination">
+  <ul>
+    <li><a href="#"></a></li>
+
+  </ul>
+</div>
+
+<table>
+
+  <% @units.each do |unit| %>
+      <tr>
+        <% @unit_photos.each do |unit_photos| %>
+            <% if unit_photos.unit_id.equal?(unit.id) %>
+                <img border="0" src="<%= unit_photos.image_url %>" width="304" height="228">
+            <% end %>
+        <% end %>
+        <br>
+        <h4 class="alert alert-info">
+          <strong>Description:</strong> <%=unit.ad_headline%>
+          <% if unit.property_address != nil %>
+            <br><strong>Address:</strong> <%=unit.property_address%>, <%=unit.property_postal_code %>
+          <% end %>
+          <% if unit.rent_max != nil %>
+              <br><strong>Rent:</strong> <%=unit.rent_max%>
+          <% end %>
+          <% if unit.square_foot_min != nil %>
+              <br> <strong>Square Footage:</strong> <%=unit.square_foot_min%>
+          <% end %>
+          <% if unit.bedrooms != nil %>
+              <br> <strong>Bedrooms:</strong> <%=unit.bedrooms%>
+          <% end %>
+          <% if unit.bathrooms != nil %>
+              <br> <strong>Bathrooms:</strong> <%=unit.bathrooms%>
+          <% end %>
+        </h4>
+
+        <p>
+          <button type="button" class="btn btn-lg btn-primary">Traffic Report</button>
+          <button type="button" class="btn btn-lg btn-success">Noise Levels</button>
+          <button type="button" class="btn btn-lg btn-info">Walkscore</button>
+          <button type="button" class="btn btn-lg btn-warning">Weather</button>
+          <button type="button" class="btn btn-lg btn-danger">Maps</button>
+        </p>
+      </tr>
+  <% end %>
+
+
+</table>
+
+<h2>Default</h2>
+<div class="pagination">
+  <ul>
+    <li><a href="#">Prev</a></li>
+    <li class="active">
+      <a href="#">1</a>
+    </li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">Next</a></li>
+  </ul>
+</div>
+
+<div class="pagination">
+  <ul>
+    <li><a href="#">«</a></li>
+    <li><a href="#">10</a></li>
+    <li class="active"><a href="#">11</a></li>
+    <li><a href="#">12</a></li>
+    <li><a href="#">»</a></li>
+  </ul>
+</div>
+
+<h2>Centered</h2>
+<div class="pagination pagination-centered">
+  <ul>
+    <li><a href="#">←</a></li>
+    <li class="active"><a href="#">10</a></li>
+    <li class="disabled"><a href="#">...</a></li>
+    <li><a href="#">20</a></li>
+    <li><a href="#">→</a></li>
+  </ul>
+</div>
+
+<h2>Pager (Centered by default)</h2>
+<ul class="pager">
+  <li>
+    <a href="#">Previous</a>
+  </li>
+  <li>
+    <a href="#">Next</a>
+  </li>
+</ul>
+
+<h2>Pager (each link aligned to sides)</h2>
+<ul class="pager">
+  <li class="previous">
+    <a href="#">&larr; Older</a>
+  </li>
+  <li class="next">
+    <a href="#">Newer &rarr;</a>
+  </li>
+</ul>
 
 <div class="page-header">
   <h1>Buttons</h1>
