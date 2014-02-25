@@ -5,52 +5,61 @@
 
 <% title "Homepage" %>
 
-<div class="price" >test</div>
-
-<h2>Default</h2>
-<div class="pagination">
-  <ul>
-    <li><a href="#"></a></li>
-
-  </ul>
-</div>
-
 <table>
 
   <% @units.each do |unit| %>
       <tr>
+        <h4 class="alert alert-success">
+          <strong><%=unit.ad_headline%></strong>
+        </h4>
         <% @unit_photos.each do |unit_photos| %>
             <% if unit_photos.unit_id.equal?(unit.id) %>
                 <img border="0" src="<%= unit_photos.image_url %>" width="304" height="228">
             <% end %>
         <% end %>
         <br>
-        <h4 class="alert alert-info">
-          <strong>Description:</strong> <%=unit.ad_headline%>
-          <% if unit.property_address != nil %>
-            <br><strong>Address:</strong> <%=unit.property_address%>, <%=unit.property_postal_code %>
-          <% end %>
-          <% if unit.rent_max != nil %>
-              <br><strong>Rent:</strong> <%=unit.rent_max%>
-          <% end %>
-          <% if unit.square_foot_min != nil %>
-              <br> <strong>Square Footage:</strong> <%=unit.square_foot_min%>
-          <% end %>
-          <% if unit.bedrooms != nil %>
-              <br> <strong>Bedrooms:</strong> <%=unit.bedrooms%>
-          <% end %>
-          <% if unit.bathrooms != nil %>
-              <br> <strong>Bathrooms:</strong> <%=unit.bathrooms%>
-          <% end %>
-        </h4>
-
-        <p>
-          <button type="button" class="btn btn-lg btn-primary">Traffic Report</button>
-          <button type="button" class="btn btn-lg btn-success">Noise Levels</button>
-          <button type="button" class="btn btn-lg btn-info">Walkscore</button>
-          <button type="button" class="btn btn-lg btn-warning">Weather</button>
-          <button type="button" class="btn btn-lg btn-danger">Maps</button>
-        </p>
+        <div class="well">
+            <ul class="list-group">
+                <% if unit.property_address != nil %>
+                    <li class="list-group-item">
+                        <br><strong>Address:</strong> <%=unit.property_address%>, <%=unit.property_postal_code %>
+                    </li>
+                <% end %>
+                <% if unit.rent_max != nil %>
+                    <li class="list-group-item">
+                        <br><strong>Rent:</strong> $<%=unit.rent_max%>
+                    </li>
+                <% end %>
+                <% if unit.square_foot_min != nil %>
+                    <li class="list-group-item">
+                        <br> <strong>Square Footage:</strong> <%=unit.square_foot_min%>
+                    </li>
+                <% end %>
+                <% if unit.bedrooms != nil %>
+                     <li class="list-group-item">
+                        <br> <strong>Bedrooms:</strong> <%=unit.bedrooms%>
+                     </li>
+                <% end %>
+                <% if unit.bathrooms != nil %>
+                      <li class="list-group-item">
+                        <br> <strong>Bathrooms:</strong> <%=unit.bathrooms%>
+                      </li>
+                <% end %>
+                <% if unit.amenities != nil %>
+                     <li class="list-group-item">
+                        <br> <strong>Amenities:</strong> <%=unit.amenities%>
+                     </li>
+                <% end %>
+                <% if unit.lease_application_fee != nil %>
+                     <li class="list-group-item">
+                        <br> <strong>Lease Application Fee:</strong> $<%=unit.lease_application_fee%>
+                     </li>
+                <% end %>
+            </ul>
+        </div>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"><span class="sr-only">100% Complete</span></div>
+        </div>
       </tr>
   <% end %>
 
