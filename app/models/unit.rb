@@ -1,6 +1,6 @@
 class Unit < ActiveRecord::Base
   belongs_to :User
   has_many :UnitPhotos
-  has_one :State
-  has_one :City
+  belongs_to :City
+  belongs_to :State
 end

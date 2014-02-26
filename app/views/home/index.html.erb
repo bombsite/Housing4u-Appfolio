@@ -1,11 +1,120 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
-  <h1>Hello, world!</h1>
-  <p>Welcome to Housing4U</p>
-  <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+  <h1>Welcome to Housing4U</h1>
 </div>
 
 <% title "Homepage" %>
+
+<table>
+
+  <% @units.each do |unit| %>
+      <tr>
+        <h4 class="alert alert-success">
+          <strong><%=unit.ad_headline%></strong>
+        </h4>
+        <% unit.UnitPhotos.each do |unit_photos| %>
+           <img border="0" src="<%= unit_photos.image_url %>" width="304" height="228">
+        <% end %>
+        <br>
+        <div class="well">
+            <ul class="list-group">
+                <% if unit.property_address != nil %>
+                    <li class="list-group-item">
+                        <strong>Address:</strong> <%=unit.property_address%>, <%=unit.property_postal_code %>
+                    </li>
+                <% end %>
+                <% if unit.rent_max != nil %>
+                    <li class="list-group-item">
+                        <strong>Rent:</strong> $<%=unit.rent_max%>
+                    </li>
+                <% end %>
+                <% if unit.square_foot_min != nil %>
+                    <li class="list-group-item">
+                        <strong>Square Footage:</strong> <%=unit.square_foot_min%>
+                    </li>
+                <% end %>
+                <% if unit.bedrooms != nil %>
+                     <li class="list-group-item">
+                        <strong>Bedrooms:</strong> <%=unit.bedrooms%>
+                     </li>
+                <% end %>
+                <% if unit.bathrooms != nil %>
+                      <li class="list-group-item">
+                        <strong>Bathrooms:</strong> <%=unit.bathrooms%>
+                      </li>
+                <% end %>
+                <% if unit.amenities != nil %>
+                     <li class="list-group-item">
+                        <strong>Amenities:</strong> <%=unit.amenities%>
+                     </li>
+                <% end %>
+                <% if unit.lease_application_fee != nil %>
+                     <li class="list-group-item">
+                       <strong>Lease Application Fee:</strong> $<%=unit.lease_application_fee%>
+                     </li>
+                <% end %>
+            </ul>
+        </div>
+      </tr>
+  <% end %>
+
+
+</table>
+
+<h2>Default</h2>
+<div class="pagination">
+  <ul>
+    <li><a href="#">Prev</a></li>
+    <li class="active">
+      <a href="#">1</a>
+    </li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">Next</a></li>
+  </ul>
+</div>
+
+<div class="pagination">
+  <ul>
+    <li><a href="#">«</a></li>
+    <li><a href="#">10</a></li>
+    <li class="active"><a href="#">11</a></li>
+    <li><a href="#">12</a></li>
+    <li><a href="#">»</a></li>
+  </ul>
+</div>
+
+<h2>Centered</h2>
+<div class="pagination pagination-centered">
+  <ul>
+    <li><a href="#">←</a></li>
+    <li class="active"><a href="#">10</a></li>
+    <li class="disabled"><a href="#">...</a></li>
+    <li><a href="#">20</a></li>
+    <li><a href="#">→</a></li>
+  </ul>
+</div>
+
+<h2>Pager (Centered by default)</h2>
+<ul class="pager">
+  <li>
+    <a href="#">Previous</a>
+  </li>
+  <li>
+    <a href="#">Next</a>
+  </li>
+</ul>
+
+<h2>Pager (each link aligned to sides)</h2>
+<ul class="pager">
+  <li class="previous">
+    <a href="#">&larr; Older</a>
+  </li>
+  <li class="next">
+    <a href="#">Newer &rarr;</a>
+  </li>
+</ul>
 
 <div class="page-header">
   <h1>Buttons</h1>
