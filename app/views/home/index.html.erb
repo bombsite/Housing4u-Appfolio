@@ -1,121 +1,72 @@
-<!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-  <h1>Welcome to Housing4U</h1>
-</div>
+<%= favicon_link_tag 'favicon.ico' %> <!-- Favicon -->
+<img border="0" src="http://i.imgur.com/smqRIX7.png" width="362" height="101"> <!-- LOGO -->
 
 <% title "Homepage" %>
 
-<table>
-
-  <% @units.each do |unit| %>
-      <tr>
-        <h4 class="alert alert-success">
-          <strong><%=unit.ad_headline%></strong>
-        </h4>
-        <% unit.UnitPhotos.each do |unit_photos| %>
-           <img border="0" src="<%= unit_photos.image_url %>" width="304" height="228">
-        <% end %>
-        <br>
-        <div class="well">
-            <ul class="list-group">
-                <% if unit.property_address != nil %>
-                    <li class="list-group-item">
-                        <strong>Address:</strong> <%=unit.property_address%>, <%=unit.property_postal_code %>
-                    </li>
-                <% end %>
-                <% if unit.rent_max != nil %>
-                    <li class="list-group-item">
-                        <strong>Rent:</strong> $<%=unit.rent_max%>
-                    </li>
-                <% end %>
-                <% if unit.square_foot_min != nil %>
-                    <li class="list-group-item">
-                        <strong>Square Footage:</strong> <%=unit.square_foot_min%>
-                    </li>
-                <% end %>
-                <% if unit.bedrooms != nil %>
-                     <li class="list-group-item">
-                        <strong>Bedrooms:</strong> <%=unit.bedrooms%>
-                     </li>
-                <% end %>
-                <% if unit.bathrooms != nil %>
-                      <li class="list-group-item">
-                        <strong>Bathrooms:</strong> <%=unit.bathrooms%>
-                      </li>
-                <% end %>
-                <% if unit.amenities != nil %>
-                     <li class="list-group-item">
-                        <strong>Amenities:</strong> <%=unit.amenities%>
-                     </li>
-                <% end %>
-                <% if unit.lease_application_fee != nil %>
-                     <li class="list-group-item">
-                       <strong>Lease Application Fee:</strong> $<%=unit.lease_application_fee%>
-                     </li>
-                <% end %>
-            </ul>
-        </div>
-      </tr>
-  <% end %>
-
-
-</table>
-
-<h2>Default</h2>
-<div class="pagination">
-  <ul>
-    <li><a href="#">Prev</a></li>
-    <li class="active">
-      <a href="#">1</a>
-    </li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">Next</a></li>
-  </ul>
-</div>
-
-<div class="pagination">
-  <ul>
-    <li><a href="#">«</a></li>
-    <li><a href="#">10</a></li>
-    <li class="active"><a href="#">11</a></li>
-    <li><a href="#">12</a></li>
-    <li><a href="#">»</a></li>
-  </ul>
-</div>
-
-<h2>Centered</h2>
-<div class="pagination pagination-centered">
-  <ul>
-    <li><a href="#">←</a></li>
-    <li class="active"><a href="#">10</a></li>
-    <li class="disabled"><a href="#">...</a></li>
-    <li><a href="#">20</a></li>
-    <li><a href="#">→</a></li>
-  </ul>
-</div>
-
-<h2>Pager (Centered by default)</h2>
+<% @units.each do |unit| %>
+    <h4 class="alert alert-info">
+        <strong><%=unit.ad_headline%></strong>
+    </h4>
+    <% unit.UnitPhotos.each do |unit_photos| %>
+        <img border="0" src="<%= unit_photos.image_url %>" width="350" height="262">
+    <% end %>
+    <br>
+    <br>
+    <div class="well">
+        <ul class="list-group">
+            <h3>Rental Terms</h3>
+            <% if unit.rent_max != nil %>
+                <li class="list-group-item">
+                <strong>Rent:</strong> $<%=unit.rent_max%>
+            <% end %>
+            <% if unit.deposit_max != nil %>
+                <br><strong>Security Deposit:</strong> $<%=unit.deposit_max%>
+              <% unit.city.name %>
+            <% end %>
+            <% if unit.lease_application_fee != nil %>
+                <br><strong>Application Fee:</strong> $<%=unit.lease_application_fee%>
+                </li>
+            <% end %>
+            <% if unit.property_address != nil %>
+                <li class="list-group-item">
+                    <strong>Address:</strong> <%=unit.property_address%>, <%=unit.property_postal_code %>
+            <% end %>
+            <% if unit.city.name != nil %>
+                <br><strong>City:</strong> <%=unit.city.name %>
+            <% end %>
+            <% if unit.state.name != nil %>
+                <br><strong>State:</strong> <%=unit.state.name %>
+                </li>
+            <% end %>
+            <% if unit.square_foot_min != nil %>
+                <li class="list-group-item">
+                    <strong>Square Footage:</strong> <%=unit.square_foot_min%>
+                </li>
+            <% end %>
+            <% if unit.bedrooms != nil %>
+                 <li class="list-group-item">
+                 <strong>Bedrooms:</strong> <%=unit.bedrooms%>
+            <% end %>
+            <% if unit.bathrooms != nil %>
+                 <br><strong>Bathrooms:</strong> <%=unit.bathrooms%>
+                 </li>
+            <% end %>
+            <% if unit.amenities != '' %>
+                 <li class="list-group-item">
+                    <strong>Amenities:</strong> <%=unit.amenities%>
+                 </li>
+            <% end %>
+        </ul>
+    </div>
+    <br>
+<% end %>
 <ul class="pager">
-  <li>
-    <a href="#">Previous</a>
-  </li>
-  <li>
-    <a href="#">Next</a>
-  </li>
+    <%= paginate @units %>
 </ul>
 
-<h2>Pager (each link aligned to sides)</h2>
-<ul class="pager">
-  <li class="previous">
-    <a href="#">&larr; Older</a>
-  </li>
-  <li class="next">
-    <a href="#">Newer &rarr;</a>
-  </li>
-</ul>
 
+
+<!--
 <div class="page-header">
   <h1>Buttons</h1>
 </div>
@@ -215,7 +166,7 @@
           </ul>
         </li>
       </ul>
-    </div><!--/.nav-collapse -->
+    </div>
   </div>
 </div>
 
@@ -248,7 +199,7 @@
           </ul>
         </li>
       </ul>
-    </div><!--/.nav-collapse -->
+    </div>
   </div>
 </div>
 
@@ -310,7 +261,7 @@
       <li class="list-group-item">Porta ac consectetur ac</li>
       <li class="list-group-item">Vestibulum at eros</li>
     </ul>
-  </div><!-- /.col-sm-4 -->
+  </div>
   <div class="col-sm-4">
     <div class="list-group">
       <a href="#" class="list-group-item active">
@@ -321,7 +272,7 @@
       <a href="#" class="list-group-item">Porta ac consectetur ac</a>
       <a href="#" class="list-group-item">Vestibulum at eros</a>
     </div>
-  </div><!-- /.col-sm-4 -->
+  </div>
   <div class="col-sm-4">
     <div class="list-group">
       <a href="#" class="list-group-item active">
@@ -337,7 +288,7 @@
         <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
       </a>
     </div>
-  </div><!-- /.col-sm-4 -->
+  </div>
 </div>
 
 
@@ -363,7 +314,7 @@
         Panel content
       </div>
     </div>
-  </div><!-- /.col-sm-4 -->
+  </div>
   <div class="col-sm-4">
     <div class="panel panel-success">
       <div class="panel-heading">
@@ -381,7 +332,7 @@
         Panel content
       </div>
     </div>
-  </div><!-- /.col-sm-4 -->
+  </div>
   <div class="col-sm-4">
     <div class="panel panel-warning">
       <div class="panel-heading">
@@ -399,7 +350,7 @@
         Panel content
       </div>
     </div>
-  </div><!-- /.col-sm-4 -->
+  </div>
 </div>
 
 
@@ -410,3 +361,5 @@
 <div class="well">
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
 </div>
+
+---->
