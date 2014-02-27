@@ -1,71 +1,65 @@
-<!-- Main jumbotron for a primary marketing message or call to action -->
-
-<%= favicon_link_tag 'favicon.ico' %>
-<img border="0" src="http://i.imgur.com/smqRIX7.png" width="362" height="101">
+<%= favicon_link_tag 'favicon.ico' %> <!-- Favicon -->
+<img border="0" src="http://i.imgur.com/smqRIX7.png" width="362" height="101"> <!-- LOGO -->
 
 <% title "Homepage" %>
 
-<table>
-  <% @units.each do |unit, city| %>
-      <tr>
-        <h4 class="alert alert-info">
-          <strong><%=unit.ad_headline%></strong>
-        </h4>
-        <% unit.UnitPhotos.each do |unit_photos| %>
-           <img border="0" src="<%= unit_photos.image_url %>" width="304" height="228">
-        <% end %>
-        <br>
-        <br>
-        <div class="well">
-            <ul class="list-group">
-              <h3>Rental Terms</h3>
-                <% if unit.rent_max != nil %>
-                    <li class="list-group-item">
-                        <strong>Rent:</strong> $<%=unit.rent_max%>
-                <% end %>
-                <% if unit.deposit_max != nil %>
-                        <br><strong>Security Deposit:</strong> $<%=unit.deposit_max%>
-                <% end %>
-                <% if unit.lease_application_fee != nil %>
-                        <br><strong>Application Fee:</strong> $<%=unit.lease_application_fee%>
-                    </li>
-                <% end %>
-                <% if unit.property_address != nil %>
-                    <li class="list-group-item">
-                        <strong>Address:</strong> <%=unit.property_address%>, <%=unit.property_postal_code %>
-                    </li>
-                <% end %>
-                <% if unit.square_foot_min != nil %>
-                    <li class="list-group-item">
-                        <strong>Square Footage:</strong> <%=unit.square_foot_min%>
-                    </li>
-                <% end %>
-                <% if unit.bedrooms != nil %>
-                     <li class="list-group-item">
-                        <strong>Bedrooms:</strong> <%=unit.bedrooms%>
-                <% end %>
-                <% if unit.bathrooms != nil %>
-                        <br><strong>Bathrooms:</strong> <%=unit.bathrooms%>
-                      </li>
-                <% end %>
-                <% if unit.amenities != nil %>
-                     <li class="list-group-item">
-                        <strong>Amenities:</strong> <%=unit.amenities%>
-                     </li>
-                <% end %>
-            </ul>
-        </div>
-        <br>
-      </tr>
-  <% end %>
-  <ul class="pager">
+<% @units.each do |unit| %>
+    <h4 class="alert alert-info">
+        <strong><%=unit.ad_headline%></strong>
+    </h4>
+    <% unit.UnitPhotos.each do |unit_photos| %>
+        <img border="0" src="<%= unit_photos.image_url %>" width="350" height="262">
+    <% end %>
+    <br>
+    <br>
+    <div class="well">
+        <ul class="list-group">
+            <h3>Rental Terms</h3>
+            <% if unit.rent_max != nil %>
+                <li class="list-group-item">
+                <strong>Rent:</strong> $<%=unit.rent_max%>
+            <% end %>
+            <% if unit.deposit_max != nil %>
+                <br><strong>Security Deposit:</strong> $<%=unit.deposit_max%>
+            <% end %>
+            <% if unit.lease_application_fee != nil %>
+                <br><strong>Application Fee:</strong> $<%=unit.lease_application_fee%>
+                </li>
+            <% end %>
+            <% if unit.property_address != nil %>
+                <li class="list-group-item">
+                    <strong>Address:</strong> <%=unit.property_address%>, <%=unit.property_postal_code %>
+                </li>
+            <% end %>
+            <% if unit.square_foot_min != nil %>
+                <li class="list-group-item">
+                    <strong>Square Footage:</strong> <%=unit.square_foot_min%>
+                </li>
+            <% end %>
+            <% if unit.bedrooms != nil %>
+                 <li class="list-group-item">
+                 <strong>Bedrooms:</strong> <%=unit.bedrooms%>
+            <% end %>
+            <% if unit.bathrooms != nil %>
+                 <br><strong>Bathrooms:</strong> <%=unit.bathrooms%>
+                 </li>
+            <% end %>
+            <% if unit.amenities != '' %>
+                 <li class="list-group-item">
+                    <strong>Amenities:</strong> <%=unit.amenities%>
+                 </li>
+            <% end %>
+        </ul>
+    </div>
+    <br>
+<% end %>
+<ul class="pager">
     <%= paginate @units %>
-  </ul>
-</table>
+</ul>
+
 
 
 <!--
-
 <div class="page-header">
   <h1>Buttons</h1>
 </div>
