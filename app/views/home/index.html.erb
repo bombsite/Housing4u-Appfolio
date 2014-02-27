@@ -21,6 +21,7 @@
             <% end %>
             <% if unit.deposit_max != nil %>
                 <br><strong>Security Deposit:</strong> $<%=unit.deposit_max%>
+              <% unit.city.name %>
             <% end %>
             <% if unit.lease_application_fee != nil %>
                 <br><strong>Application Fee:</strong> $<%=unit.lease_application_fee%>
@@ -29,6 +30,12 @@
             <% if unit.property_address != nil %>
                 <li class="list-group-item">
                     <strong>Address:</strong> <%=unit.property_address%>, <%=unit.property_postal_code %>
+            <% end %>
+            <% if unit.city.name != nil %>
+                <br><strong>City:</strong> <%=unit.city.name %>
+            <% end %>
+            <% if unit.state.name != nil %>
+                <br><strong>State:</strong> <%=unit.state.name %>
                 </li>
             <% end %>
             <% if unit.square_foot_min != nil %>
