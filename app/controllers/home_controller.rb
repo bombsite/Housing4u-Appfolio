@@ -1,8 +1,11 @@
 class HomeController < ApplicationController
 
   def index
-    @units = Unit.page(params[:page]).per(10)
-    @states = State.all
+    if params[:query].present?
+      @units = Unit.search(params[:query], page: params[:page], fields: [:ad_headline])
+    else
+      @units = Unit.all.page params[:page]
+    end
   end
 
 end

@@ -1,68 +1,11 @@
-<%= favicon_link_tag 'favicon.ico' %> <!-- Favicon -->
-<img border="0" src="http://i.imgur.com/smqRIX7.png" width="362" height="101"> <!-- LOGO -->
+<% title "Homepage" %>
 
-<%= form_tag("/search", method: "get") do %>
-    <%= label_tag(:q, "Search for:") %>
-    <%= select_tag(:q) %>
-    <%= submit_tag("Search") %>
 
+<%= form_tag "/", class: "form-inline", method: :get do %>
+    <%=text_field_tag :query, params[:query], class: "form-control"%>
+    <%=submit_tag "Search", class: "btn btn-primary"%>
 <% end %>
 
-<select>
-  <option value="AL">Alabama</option><br />
-  <option value="AK">Alaska</option><br />
-  <option value="AZ">Arizona</option><br />
-  <option value="AR">Arkansas</option><br />
-  <option value="CA" selected="selected">California</option><br />
-  <option value="CO">Colorado</option><br />
-  <option value="CT">Connecticut</option><br />
-  <option value="DE">Delaware</option><br />
-  <option value="DC">District Of Columbia</option><br />
-  <option value="FL">Florida</option><br />
-  <option value="GA">Georgia</option><br />
-  <option value="HI">Hawaii</option><br />
-  <option value="ID">Idaho</option><br />
-  <option value="IL">Illinois</option><br />
-  <option value="IN">Indiana</option><br />
-  <option value="IA">Iowa</option><br />
-  <option value="KS">Kansas</option><br />
-  <option value="KY">Kentucky</option><br />
-  <option value="LA">Louisiana</option><br />
-  <option value="ME">Maine</option><br />
-  <option value="MD">Maryland</option><br />
-  <option value="MA">Massachusetts</option><br />
-  <option value="MI">Michigan</option><br />
-  <option value="MN">Minnesota</option><br />
-  <option value="MS">Mississippi</option><br />
-  <option value="MO">Missouri</option><br />
-  <option value="MT">Montana</option><br />
-  <option value="NE">Nebraska</option><br />
-  <option value="NV">Nevada</option><br />
-  <option value="NH">New Hampshire</option><br />
-  <option value="NJ">New Jersey</option><br />
-  <option value="NM">New Mexico</option><br />
-  <option value="NY">New York</option><br />
-  <option value="NC">North Carolina</option><br />
-  <option value="ND">North Dakota</option><br />
-  <option value="OH">Ohio</option><br />
-  <option value="OK">Oklahoma</option><br />
-  <option value="OR">Oregon</option><br />
-  <option value="PA">Pennsylvania</option><br />
-  <option value="RI">Rhode Island</option><br />
-  <option value="SC">South Carolina</option><br />
-  <option value="SD">South Dakota</option><br />
-  <option value="TN">Tennessee</option><br />
-  <option value="TX">Texas</option><br />
-  <option value="UT">Utah</option><br />
-  <option value="VT">Vermont</option><br />
-  <option value="VA">Virginia</option><br />
-  <option value="WA">Washington</option><br />
-  <option value="WV">West Virginia</option><br />
-  <option value="WI">Wisconsin</option><br />
-  <option value="WY">Wyoming</option><br />
-</select>
-
-<% title "Homepage" %>
 
 <% @units.each do |unit| %>
     <h4 class="alert alert-info">

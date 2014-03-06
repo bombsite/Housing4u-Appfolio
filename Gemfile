@@ -30,6 +30,8 @@ gem 'devise'
 #nokogiri
 gem 'nokogiri'
 
+gem 'searchkick'
+
 #db foreigner
 gem 'foreigner'
 

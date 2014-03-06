@@ -5,6 +5,8 @@
   <%= stylesheet_link_tag    "application", media: "all"  %>
   <%= javascript_include_tag "application"  %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.ico' %> <!-- Favicon -->
+
 </head>
 
 <body role="document">
@@ -48,6 +50,10 @@
 </div>
 
 <div class="container container-space" role="main">
+
+  <img border="0" src="http://i.imgur.com/smqRIX7.png" width="362" height="101"> <!-- LOGO -->
+  <br />
+  <br />
 
   <% if notice %>
       <div class="row">
