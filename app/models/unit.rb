@@ -17,7 +17,7 @@ class Unit < ActiveRecord::Base
         string search_terms, fields: [:ad_headline, :ad_content]
       end
 
-      highlight :ad_headline, :ad_content
+      #highlight :ad_headline, :ad_content
 
       # Sort results
       sort { by :created_at }
@@ -37,7 +37,7 @@ class Unit < ActiveRecord::Base
   end
 
   def self.advanced_search(search_conditions, options={})
-    fields = [:ad_headline, :ad_content, :city_id]
+    fields = [:ad_headline, :ad_content, :city_id, :bathrooms, :bedrooms]
 
     search = Tire.search Unit.tire.index.name, load:true do
 
@@ -50,7 +50,7 @@ class Unit < ActiveRecord::Base
         end
       end
 
-      highlight :ad_headline, :ad_content, :options => { :tag => '<strong class="highlight">' }
+      #highlight :ad_headline, :ad_content, :options => { :tag => '<strong class="highlight">' }
       #highlight *fields
 
       # Sort results
