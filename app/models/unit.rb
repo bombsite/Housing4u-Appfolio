@@ -10,12 +10,6 @@ class Unit < ActiveRecord::Base
 
   DEFAULT_SEARCH_SIZE = 25
 
-  mapping do
-    indexes :id,            index: :not_analyzed
-    indexes :ad_content,          type: 'string'
-    indexes :ad_headline,          type: 'string'
-  end
-
   def self.simple_search(search_terms, options={})
     search = Tire.search Unit.tire.index.name, load:true do
       # What we're looking for

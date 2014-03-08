@@ -21,8 +21,6 @@ class UnitsController < ApplicationController
     params[:search] ||={}
     @show_advanced = true
 
-    logger.debug "hello"
-    logger.debug params[:search][:ad_headline]
     search = Unit.advanced_search(params[:search], page: params[:page])
     @units = search.results
 
