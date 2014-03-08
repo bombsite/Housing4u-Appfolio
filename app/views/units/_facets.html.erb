@@ -1,0 +1,55 @@
+<% if total > 0 %>
+<div class="sidebar-nav">
+  <div class="well">
+    <ul class="nav nav-list">
+
+      <li class="nav-header">
+        <i class="icon icon-file"></i>
+        Bathrooms
+      </li>
+      <% @units.facets['current-bathroom']['terms'].each do |facet| %>
+          <%= render partial: 'units/facet', locals: {term: facet['term'],
+                                                      count: facet['count'],
+                                                      name: facet['term'],
+                                                      search_option:'bathrooms'} %>
+      <% end %>
+
+      <li class="nav-header">
+        <i class="icon icon-file"></i>
+        Bedrooms
+      </li>
+      <% @units.facets['current-bedroom']['terms'].each do |facet| %>
+          <%= render partial: 'units/facet', locals: {term: facet['term'],
+                                                      count: facet['count'],
+                                                      name: facet['term'],
+                                                      search_option:'bedrooms'} %>
+      <% end %>
+
+      <li class="nav-header">
+        <i class="icon icon-file"></i>
+        Cities
+      </li>
+      <% @units.facets['current-city']['terms'].each do |facet| %>
+        <%= render partial: 'units/facet', locals: {term: facet['term'],
+                                                    count: facet['count'],
+                                                    name: City.find(facet['term']).name,
+                                                    search_option:'city_id'} %>
+
+      <% end %>
+
+      <li class="nav-header">
+        <i class="icon icon-file"></i>
+        States
+      </li>
+      <% @units.facets['current-state']['terms'].each do |facet| %>
+          <%= render partial: 'units/facet', locals: {term: facet['term'],
+                                                      count: facet['count'],
+                                                      name: State.find(facet['term']).name,
+                                                      search_option:'state_id'} %>
+      <% end %>
+
+
+    </ul>
+  </div>
+</div>
+<% end %>

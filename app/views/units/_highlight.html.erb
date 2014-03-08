@@ -1,0 +1,7 @@
+<% %w(ad_headline ad_content).each do |field| %>
+  <% if highlight.send(field) %>
+    <b>#{field.capitalize}:</b>
+    <%= highlight.send(field).join(' ... ').html_safe %>
+    <br/>
+  <% end %>
+<% end %>

@@ -1,0 +1,34 @@
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">
+        <h4>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Advanced Search</a>
+        </h4>
+      </div>
+    </div>
+    <div class="panel-collapse collapse in" id="collapseOne">
+      <div class="panel-body">
+        <div class="well">
+          <form action="<%= advanced_path %>" method="get" role="form">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="unit-ad-headline">Unit Ad Headline</label>
+                  <input id="unit-ad-headline" class="form-control" placeholder="Search ad headline" name="search[ad_headline]" value="<%= params[:search][:ad_headline] %>" />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="unit-info">Unit Ad Content</label>
+                  <input id="unit-ad-content" class="form-control" placeholder="Search ad content" name="search[ad_content]" value="<%= params[:search][:ad_content] %>" />
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-danger" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
