@@ -20,3 +20,5 @@
 /.idea/tasks.xml
 /.idea/untitled.iml
 /.idea/*
+
+/config/database.yml
