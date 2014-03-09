@@ -17,18 +17,29 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  adapter: sqlite3
-  database: db/test.sqlite3
-  pool: 5
-  timeout: 5000
+#test:
+#  adapter: sqlite3
+#  database: db/test.sqlite3
+#  pool: 5
+#  timeout: 5000
 
-production:
+test:
   adapter: postgresql
   database: d4udrq3d6an279
   username: exbkfjqpwsquyz
   password: 4JkRJxsSf43OsP1EU8d7z_gvEF
   host: ec2-54-235-132-177.compute-1.amazonaws.com
+  port: 5432
+  encoding: UTF8
+  pool: 5
+  timeout: 5000
+
+production:
+  adapter: postgresql
+  database: dfv372i27t9lco
+  username: irgycqzfsmwyap
+  password: AtY9h8c7zT1r-S9yXLiZK3AyCD
+  host: ec2-184-73-254-144.compute-1.amazonaws.com
   port: 5432
   encoding: UTF8
   pool: 5

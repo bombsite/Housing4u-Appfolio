@@ -20,6 +20,3 @@
 /.idea/tasks.xml
 /.idea/untitled.iml
 /.idea/*
-
-#ignore database.yml
-/config/database.yml
