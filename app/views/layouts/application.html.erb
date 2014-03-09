@@ -5,6 +5,8 @@
   <%= stylesheet_link_tag    "application", media: "all"  %>
   <%= javascript_include_tag "application"  %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.ico' %> <!-- Favicon -->
+
 </head>
 
 <body role="document">
@@ -23,7 +25,7 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="<%= controller.class == HomeController and controller.action_name == 'index' ? 'active' : '' %>"><a href="/">Home</a></li>
+        <li class="<%= controller.class == UnitsController and controller.action_name == 'index' ? 'active' : '' %>"><a href="/">Home</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -47,7 +49,35 @@
   </div>
 </div>
 
+
+
+
 <div class="container container-space" role="main">
+
+  <div class="row-fluid">
+    <div class="col-md-6">
+      <img border="0" src="http://i.imgur.com/smqRIX7.png" width="362" height="101"> <!-- LOGO -->
+
+    </div>
+    <div class="col-md-6">
+
+          <div class="collapse navbar-collapse navbar-ex8-collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+              <li>
+                <%= render partial: 'units/search' %>
+              </li>
+              <li>
+                <%= link_to('Advanced Search', advanced_path) %>
+              </li>
+            </ul>
+          </div>
+
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+  <br />
+
 
   <% if notice %>
       <div class="row">
@@ -59,6 +89,7 @@
         <div class="span4 alert alert-danger"><%= alert %></div>
       </div>
   <% end %>
+
 
   <%= yield %>
 

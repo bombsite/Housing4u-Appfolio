@@ -1,0 +1,60 @@
+<% @units.each do |unit| %>
+    <h4 class="alert alert-info">
+      <strong><%= link_to unit.ad_headline, unit_url(unit) %></strong>
+    </h4>
+    <div>
+    <% unit.UnitPhotos.take(2).each do |unit_photos| %>
+        <img border="0" src="<%= unit_photos.image_url %>" width="350" height="262">
+    <% end %>
+    </div>
+    <div class="well">
+        <h3>Description</h3>
+        <%= unit.ad_content %>
+    </div>
+    <div class="well">
+      <h3>Rental Terms</h3>
+      <ul class="list-group">
+        <% if unit.rent_max != nil %>
+            <li class="list-group-item">
+              <strong>Rent:</strong> $<%=unit.rent_max%>
+        <% end %>
+        <% if unit.deposit_max != nil %>
+            <br><strong>Security Deposit:</strong> $<%=unit.deposit_max%>
+            <% unit.city.name %>
+        <% end %>
+        <% if unit.lease_application_fee != nil %>
+            <br><strong>Application Fee:</strong> $<%=unit.lease_application_fee%>
+            </li>
+        <% end %>
+        <% if unit.property_address != nil %>
+            <li class="list-group-item">
+              <strong>Address:</strong> <%=unit.property_address%>, <%=unit.property_postal_code %>
+        <% end %>
+        <% if unit.city.name != nil %>
+            <br><strong>City:</strong> <%=unit.city.name %>
+        <% end %>
+        <% if unit.state.name != nil %>
+            <br><strong>State:</strong> <%=unit.state.name %>
+            </li>
+        <% end %>
+        <% if unit.square_foot_min != nil %>
+            <li class="list-group-item">
+              <strong>Square Footage:</strong> <%=unit.square_foot_min%>
+            </li>
+        <% end %>
+        <% if unit.bedrooms != nil %>
+            <li class="list-group-item">
+              <strong>Bedrooms:</strong> <%=unit.bedrooms%>
+        <% end %>
+        <% if unit.bathrooms != nil %>
+            <br><strong>Bathrooms:</strong> <%=unit.bathrooms%>
+            </li>
+        <% end %>
+        <% if unit.amenities != '' %>
+            <li class="list-group-item">
+              <strong>Amenities:</strong> <%=unit.amenities%>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>

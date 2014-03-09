@@ -30,6 +30,9 @@ gem 'devise'
 #nokogiri
 gem 'nokogiri'
 
+gem 'tire'
+gem 'haml-rails'
+
 #db foreigner
 gem 'foreigner'
 

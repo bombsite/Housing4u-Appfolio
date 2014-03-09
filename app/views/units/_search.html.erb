@@ -1,0 +1,8 @@
+<%= form_tag(search_path, id: 'new_search', class: 'navbar-form navbar-left', method: 'get') do %>
+  <div class="form-group">
+    <input class="form-control" id="units_search" name="search[q]" placeholder="Search units..." type="text" value="<%= original_search(params) %>"></input>
+  </div>
+  <button class="btn btn-danger" type="submit">
+    Search
+  </button>
+<% end %>

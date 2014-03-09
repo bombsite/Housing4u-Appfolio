@@ -55,7 +55,16 @@ Untitled::Application.routes.draw do
   #     resources :products
   #   end
 
-  root :to => 'home#index'
+  resources :units
+
+  root :to => 'units#index'
+
+  scope "/admin" do
+    resources :users
+  end
+
+  get "/search" => 'units#search'
+  get "/advanced" => 'units#advanced_search'
 
 
 end
