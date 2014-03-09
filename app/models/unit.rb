@@ -40,6 +40,7 @@ class Unit < ActiveRecord::Base
   end
 
   def self.advanced_search(search_conditions, options={})
+
     fields = [:ad_headline, :ad_content, :city_id, :state_id, :bathrooms, :bedrooms]
 
     search = Tire.search Unit.tire.index.name, load:true do
@@ -50,6 +51,12 @@ class Unit < ActiveRecord::Base
           fields.each do |field|
             must { string search_conditions[field], :default_operator => 'AND', :fields => [field] } if search_conditions[field].present?
           end
+
+          rent_min = search_conditions['rent_min'].present? ? search_conditions['rent_min'] : 0
+          rent_max = search_conditions['rent_max'].present? ? search_conditions['rent_max'] : 99999999
+
+          must { range :rent_max, { gte: rent_min, lte: rent_max } }
+
         end
       end
 
