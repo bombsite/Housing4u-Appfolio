@@ -30,12 +30,13 @@ gem 'devise'
 #nokogiri
 gem 'nokogiri'
 
+#searching
 gem 'tire'
-gem 'haml-rails'
 
 #db foreigner
 gem 'foreigner'
 
+#paging
 gem 'kaminari'
 
 group :doc do
