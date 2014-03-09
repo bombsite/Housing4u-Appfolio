@@ -17,8 +17,17 @@ ActiveRecord::Base.connection.execute(IO.read("#{Rails.root}/db/appfolio_seeds/s
 ActiveRecord::Base.connection.execute(IO.read("#{Rails.root}/db/appfolio_seeds/cities.sql"))
 
 ActiveRecord::Base.connection.execute(IO.read("#{Rails.root}/db/appfolio_seeds/units.sql"))
+ActiveRecord::Base.connection.execute(IO.read("#{Rails.root}/db/appfolio_seeds/units2.sql"))
+ActiveRecord::Base.connection.execute(IO.read("#{Rails.root}/db/appfolio_seeds/units3.sql"))
+ActiveRecord::Base.connection.execute(IO.read("#{Rails.root}/db/appfolio_seeds/units4.sql"))
+ActiveRecord::Base.connection.execute(IO.read("#{Rails.root}/db/appfolio_seeds/units5.sql"))
 
 ActiveRecord::Base.connection.execute(IO.read("#{Rails.root}/db/appfolio_seeds/unit_photos.sql"))
+ActiveRecord::Base.connection.execute(IO.read("#{Rails.root}/db/appfolio_seeds/unit_photos2.sql"))
+ActiveRecord::Base.connection.execute(IO.read("#{Rails.root}/db/appfolio_seeds/unit_photos3.sql"))
+ActiveRecord::Base.connection.execute(IO.read("#{Rails.root}/db/appfolio_seeds/unit_photos4.sql"))
+ActiveRecord::Base.connection.execute(IO.read("#{Rails.root}/db/appfolio_seeds/unit_photos5.sql"))
+ActiveRecord::Base.connection.execute(IO.read("#{Rails.root}/db/appfolio_seeds/unit_photos6.sql"))
 
 #update sequences for future inserts
 ActiveRecord::Base.connection.execute(IO.read("#{Rails.root}/db/appfolio_seeds/update_sequences.sql"))

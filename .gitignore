@@ -21,3 +21,4 @@
 /.idea/untitled.iml
 /.idea/*
 
+/config/database.yml
