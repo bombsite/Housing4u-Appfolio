@@ -29,15 +29,18 @@ class Unit < ActiveRecord::Base
       size search_size
 
       #facets
-      facet('current-city') { terms :city_id }
-      facet('current-state') { terms :state_id }
-      facet('current-bathroom') {terms :bathrooms}
-      facet('current-bedroom'){terms :bedrooms}
+      if options[:facets]
+        facet('current-city') { terms :city_id }
+        facet('current-state') { terms :state_id }
+        facet('current-bathroom') {terms :bathrooms}
+        facet('current-bedroom'){terms :bedrooms}
+      end
+
     end
   end
 
   def self.advanced_search(search_conditions, options={})
-    fields = [:ad_headline, :ad_content, :city_id, :bathrooms, :bedrooms]
+    fields = [:ad_headline, :ad_content, :city_id, :state_id, :bathrooms, :bedrooms]
 
     search = Tire.search Unit.tire.index.name, load:true do
 
