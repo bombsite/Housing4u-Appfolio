@@ -42,13 +42,13 @@
                 <%= select_tag "search[state_id]", options_from_collection_for_select(State.order(:name), :id, :name, params[:search][:state_id]), class: "form-control", :prompt => 'Select State' %>
               </div>
             </div>
-
+            <br />
             <div class="row">
               <div class="col-md-6">
-                <div class="form-group">
+                <div class="form-inline">
                   <label for="unit-info">Price range</label>
-                  <input id="unit-ad-content" class="form-control" placeholder="Search rent max" name="search[rent_max]" value="<%= params[:search][:rent_max] %>" />
-                  <input id="unit-ad-content" class="form-control" placeholder="Search rent min" name="search[rent_min]" value="<%= params[:search][:rent_min] %>" />
+                  <input id="unit-ad-content" class="form-control" placeholder="Rent min" name="search[rent_min]" value="<%= params[:search][:rent_min] %>" />
+                  <input id="unit-ad-content" class="form-control" placeholder="Rent max" name="search[rent_max]" value="<%= params[:search][:rent_max] %>" />
                 </div>
               </div>
               <div class="col-md-6">
