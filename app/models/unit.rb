@@ -1,8 +1,11 @@
 
 
 class Unit < ActiveRecord::Base
+
   include Tire::Model::Search
   include Tire::Model::Callbacks
+  Tire.configure { url "lisp.cs.ucsb.edu:9200" }
+
   belongs_to :user
   has_many :UnitPhotos
   belongs_to :city
