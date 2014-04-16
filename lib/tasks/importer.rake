@@ -16,6 +16,28 @@ namespace :housing4u do
     #loop through each rental add
     doc.xpath('//adlist/rentalad').each do |i|
 
+      geocode_results = Geocoder.search(i.xpath('requiredinfo/propertyaddress').text + ", " +
+                                       i.xpath('unitinfo/propertycity').text + ", " +
+                                       i.xpath('unitinfo/propertystate').text + " " +
+                                       i.xpath('requiredinfo/propertypostalcode').text
+                                      )
+
+      geocode_state = geocode_results[0].state_code
+      geocode_city  = geocode_results[0].city
+      geocode_postal  = geocode_results[0].postal_code
+      geocode_formatted_address = geocode_results[0].address_data["formattedAddress"]
+      geocode_latitude = geocode_results[0].coordinates[0]
+      geocode_longitude = geocode_results[0].coordinates[1]
+      geocode_address_line = geocode_results[0].address_data["addressLine"]
+
+      #puts geocode_state
+      #puts geocode_city
+      #puts geocode_postal
+      #puts geocode_formatted_address
+      #puts geocode_latitude
+      #puts geocode_longitude
+      #puts geocode_address_line
+
       #find or create user from the xpath
       @user = ImportHelper.find_or_create_user(i.xpath('requiredinfo/username').text,
                                                i.xpath('contactinfo/contactcompany').text,
@@ -23,12 +45,12 @@ namespace :housing4u do
       break unless @user
 
       #find the state (if not, create)
-      @state = State.find_or_create_by(name: i.xpath('unitinfo/propertystate').text)
+      @state = State.find_or_create_by(name: geocode_state)
 
       break unless @state
 
       #find the city (using state id foreign key)
-      @city = City.find_or_create_by(name: i.xpath('unitinfo/propertycity').text,
+      @city = City.find_or_create_by(name: geocode_city,
                                      state_id: @state.id)
 
       break unless @city
@@ -53,22 +75,27 @@ namespace :housing4u do
                         show_address: i.xpath('metainfo/optionshowaddress').text.to_i == 1,
                         show_map: i.xpath('metainfo/optionshowmap').text.to_i == 1,
                         multi_unit: i.xpath('metainfo/multiunit').text.to_i == 1,
-                        ad_headline: i.xpath('requiredinfo/adheadline').text,
-                        ad_content: i.xpath('requiredinfo/adcontent').text,
-                        property_address: i.xpath('requiredinfo/propertyaddress').text,
-                        property_postal_code:  i.xpath('requiredinfo/propertypostalcode').text,
-                        tour_video: i.xpath('miscinfo/advirtualtoururl').text,
+                        ad_headline: i.xpath('requiredinfo/adheadline').text.strip,
+                        ad_content: i.xpath('requiredinfo/adcontent').text.strip,
+                        property_address: geocode_address_line,
+                        property_postal_code:  geocode_postal,
+                        tour_video: i.xpath('miscinfo/advirtualtoururl').text.strip,
                         city_id: @city.id,
                         state_id: @state.id,
-                        rent_max: i.xpath('unitinfo/propertyrentmax').text,
-                        square_foot_min: i.xpath('unitinfo/propertysquarefootmin').text,
+                        rent_max: i.xpath('unitinfo/propertyrentmax').text.strip,
+                        square_foot_min: i.xpath('unitinfo/propertysquarefootmin').text.strip,
                         bedrooms: @bedrooms,
                         bathrooms: @bathrooms,
-                        deposit_max: i.xpath('unitinfo/propertydepositmax').text,
+                        deposit_max: i.xpath('unitinfo/propertydepositmax').text.strip,
                         availability_date: @avail_date,
-                        lease_application_fee: i.xpath('leaseinfo/leaseapplicationfee').text,
-                        amenities: i.xpath('features/amenityothername1').text,
-                        active: i.xpath('metainfo/adactive').text.to_i == 1)
+                        lease_application_fee: i.xpath('leaseinfo/leaseapplicationfee').text.strip,
+                        amenities: i.xpath('features/amenityothername1').text.strip,
+                        active: (i.xpath('metainfo/adactive').text.to_i == 1),
+                        latitude: geocode_latitude,
+                        longitude: geocode_longitude,
+                        formatted_address: geocode_formatted_address )
+
+
       @unit.save
 
 

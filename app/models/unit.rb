@@ -13,6 +13,14 @@ class Unit < ActiveRecord::Base
 
   DEFAULT_SEARCH_SIZE = 25
 
+  #geocoded_by :full_street_address
+  #
+  #def self.full_street_address
+  #  string = :property_address
+  #  string << " "
+  #  string << City
+  #end
+
   def self.simple_search(search_terms, options={})
     search = Tire.search Unit.tire.index.name, load:true do
       # What we're looking for
