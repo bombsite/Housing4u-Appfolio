@@ -45,3 +45,7 @@
     background-color: #fff;
     cursor: default;
 }
+
+.col-lg-4 {
+    padding-top:20px;
+}
