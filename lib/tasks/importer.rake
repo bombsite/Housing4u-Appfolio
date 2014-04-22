@@ -13,14 +13,21 @@ namespace :housing4u do
     #ensure mits file exists
     doc = Nokogiri::XML(File.open("#{Rails.root}/lib/assets/mits.xml"))
 
+    xx = 0
+
     #loop through each rental add
     doc.xpath('//adlist/rentalad').each do |i|
+
+      xx += 1
 
       geocode_results = Geocoder.search(i.xpath('requiredinfo/propertyaddress').text + ", " +
                                        i.xpath('unitinfo/propertycity').text + ", " +
                                        i.xpath('unitinfo/propertystate').text + " " +
                                        i.xpath('requiredinfo/propertypostalcode').text
                                       )
+      next if geocode_results[0] == nil
+
+      puts xx
 
       geocode_state = geocode_results[0].state_code
       geocode_city  = geocode_results[0].city
