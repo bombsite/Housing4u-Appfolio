@@ -24,16 +24,16 @@
               <div id="map" style='width: 800px; height: 400px;'></div>
             </div>
             <script type="text/javascript">
-                handler = Gmaps.build('Google');
-                handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-                    markers = handler.addMarkers([
-                        {"lat": <%= @unit.latitude %>, "lng": <%= @unit.longitude %>, 'marker': '<span>Here!</span>'}
-                    ]);
-                    handler.bounds.extendWith(markers);
-                    handler.fitMapToBounds();
-                    handler.getMap().setZoom(14);
+                $('#map').gmap().bind('init', function(ev, map) {
+                    $('#map').gmap('addMarker', {'position': '<%= @unit.latitude %>,<%= @unit.longitude %>', 'bounds': true}).click(function() {
+                        $('#map').gmap('openInfoWindow', {'content': '<%= @unit.formatted_address %>'}, this);
+                    });
+                    $("#map").gmap('option', 'zoom', 14);
                 });
+
             </script>
+
+
           </td>
         </tr>
         <tr>

@@ -14,6 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap.min
 //= require jquery.fancybox.js
+//= require jquery.ui.map.full.min.js
 //= require_tree .
-//= require underscore
-//= require gmaps/google
