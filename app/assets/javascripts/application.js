@@ -15,3 +15,5 @@
 //= require bootstrap.min
 //= require jquery.fancybox.js
 //= require_tree .
+//= require underscore
+//= require gmaps/google
