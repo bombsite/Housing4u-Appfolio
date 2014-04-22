@@ -9,6 +9,12 @@ Untitled::Application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  #precompile images
+
+  config.serve_static_assets = true
+  config.assets.precompile += ['*.png', '*.gif']
+  config.assets.precompile += [Dir["#{Rails.root}/app/assets/images/**/*"].reject {|fn| File.directory?(fn)}]
+
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false

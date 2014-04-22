@@ -25,12 +25,22 @@
             <b>Photos</b>
           </td>
           <td>
+            <div class="row">
+
             <% @unit.UnitPhotos.each do |unit_photos| %>
-                <img border="0" src="<%= unit_photos.image_url %>" width="350" height="262">
-            <% end %>
+                  <div class="col-lg-4">
+                    <a class="fancybox" href="<%= unit_photos.image_url %>" data-fancybox-group="gallery" title=""><img height="150" width="242"  src="<%= unit_photos.image_url %>" alt="" /></a>
+                  </div>
+              <% end %>
+            </div>
           </td>
         </tr>
       </table>
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('.fancybox').fancybox();
+  });
+</script>
