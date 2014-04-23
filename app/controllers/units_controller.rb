@@ -21,10 +21,15 @@ class UnitsController < ApplicationController
     params[:search] ||={}
     @show_advanced = true
 
+
     search = Unit.advanced_search(params[:search], page: params[:page])
     @units = search.results
 
-    render 'index'
+    if params[:map_view]
+      render 'map_view'
+    else
+      render 'index'
+    end
   end
 
 end

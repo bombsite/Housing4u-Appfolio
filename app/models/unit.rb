@@ -11,6 +11,9 @@ class Unit < ActiveRecord::Base
   belongs_to :city
   belongs_to :state
 
+  geocoded_by :formatted_address
+  reverse_geocoded_by :latitude, :longitude
+
   DEFAULT_SEARCH_SIZE = 25
 
   #geocoded_by :full_street_address
