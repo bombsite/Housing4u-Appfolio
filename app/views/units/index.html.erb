@@ -13,6 +13,9 @@
           <div class="col-md-4 results">
             <%= total_found(@units) %>
           </div>
+          <div class="col-md-4">
+            <a href="<%= request.original_url + "&map_view=1" %>"><button class="btn btn-primary">Map View</button></a>
+          </div>
         </div>
         <div class="row">
           <% if @units.respond_to?(:facets) && @units.facets.present? %>
