@@ -53,7 +53,7 @@ class Unit < ActiveRecord::Base
     end
   end
 
-  def self.advanced_search(search_conditions, options={})
+  def self.advanced_search(search_conditions, search_size, options={})
 
     fields = [:ad_headline, :ad_content, :city_id, :state_id, :bathrooms, :bedrooms]
 
@@ -82,7 +82,6 @@ class Unit < ActiveRecord::Base
 
       # Results pagination / number of results per page
       page = (options[:page] || 1).to_i
-      search_size = options[:per] || DEFAULT_SEARCH_SIZE
       from (page -1) * search_size
       size search_size
 

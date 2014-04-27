@@ -22,7 +22,9 @@ class UnitsController < ApplicationController
     @show_advanced = true
 
 
-    search = Unit.advanced_search(params[:search], page: params[:page])
+    search_size = params[:map_view] == "1" ? 500 : 25
+    search = Unit.advanced_search(params[:search], search_size, page: params[:page])
+
     @units = search.results
 
     if params[:map_view]

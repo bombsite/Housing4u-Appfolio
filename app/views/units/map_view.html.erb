@@ -14,6 +14,12 @@
           </div>
         <% end %>
         <div class="row">
+          <div class="col-md-4 results">
+            <%= total_found(@units) %>
+          </div>
+        </div>
+        <div class="row">
+
           <% if @units.respond_to?(:facets) && @units.facets.present? %>
             <div class="col-md-2">
               <%= render partial: 'units/facets', locals: {total: @units.total} %>
@@ -33,7 +39,7 @@
                         $('#map').gmap('openInfoWindow', {'content': '<%= unit.formatted_address %>'}, this);
                     });
                     <% end %>
-                    $("#map").gmap('option', 'zoom', 14);
+                    $("#map").gmap('option', 'zoom', 7);
 
                 });
 
