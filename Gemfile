@@ -29,6 +29,10 @@ gem 'pg'
 #devise (UA)
 gem 'devise'
 
+#omniauth for fb authentication
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 #nokogiri
 gem 'nokogiri'
 
