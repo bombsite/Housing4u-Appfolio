@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
-gem 'rake', '~> 10.3.0'
+gem 'rake', '~> 10.3.1'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -28,6 +28,10 @@ gem 'pg'
 
 #devise (UA)
 gem 'devise'
+
+#omniauth for fb authentication
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 #nokogiri
 gem 'nokogiri'

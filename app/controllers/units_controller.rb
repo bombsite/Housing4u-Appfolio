@@ -1,7 +1,18 @@
 class UnitsController < ApplicationController
   include Tire::Model::Search
   def index
-      @units = Unit.page(params[:page]).per(Unit::DEFAULT_SEARCH_SIZE)
+    params[:search] ||={}
+
+    search_size = params[:map_view] == "1" ? 500 : 25
+    search = Unit.advanced_search(params[:search], search_size, page: params[:page])
+
+    @units = search.results
+
+    if params[:map_view]
+      render 'map_view'
+    else
+      render 'index'
+    end
   end
 
   def show
@@ -16,20 +27,4 @@ class UnitsController < ApplicationController
 
     render 'index'
   end
-
-  def advanced_search
-    params[:search] ||={}
-    @show_advanced = true
-
-
-    search = Unit.advanced_search(params[:search], page: params[:page])
-    @units = search.results
-
-    if params[:map_view]
-      render 'map_view'
-    else
-      render 'index'
-    end
-  end
-
 end
