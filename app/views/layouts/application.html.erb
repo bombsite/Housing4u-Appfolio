@@ -43,7 +43,7 @@
         <% else %>
             <li class="<%= request.path == new_user_session_path ? 'active' : '' %>"><%= link_to "Sign in", new_user_session_path %></li>
             <li class="<%= request.path == new_user_session_path ? 'active' : '' %>"><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
-             <!--%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %--x`>
+             <!--%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %-->
             <li class="<%= request.path == new_user_registration_path ? 'active' : '' %>"><%= link_to "Sign up", new_user_registration_path %></li>
         <% end %>
       </ul>
