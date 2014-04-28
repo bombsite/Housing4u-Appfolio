@@ -37,7 +37,7 @@
 
                     <% @units.each do |unit| %>
                     $('#map').gmap('addMarker', {'position': '<%= unit.latitude %>,<%= unit.longitude %>', 'bounds': true}).click(function() {
-                        $('#map').gmap('openInfoWindow', {'content': '<%= unit.formatted_address %>'}, this);
+                        $('#map').gmap('openInfoWindow', {'content': '<%= link_to unit.formatted_address, unit_url(unit) %>'}, this);
                     });
                     <% end %>
                     $("#map").gmap('option', 'zoom', 7);
