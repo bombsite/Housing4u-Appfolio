@@ -1,0 +1,25 @@
+<% title "Profile" %>
+
+<img src="https://www.extrusioneers-innovation-contest.com/images/default_images/noUserImg.png"></img>
+<div class="content">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">
+          <h4>Username: <%= @user.email %></h4>
+      </div>
+    </div>
+    <div class="panel-body">
+      <form id="advanced_form" action="" method="post" role="form">
+          <label for="description">Description About Yourself</label>
+          <input id="description" class="form-control" placeholder="Enter Text" name="description" />
+          <button class="btn btn-danger" type="submit">Submit</button>
+      </form>
+
+
+    </div>
+
+
+
+  </div>
+</div>
+
