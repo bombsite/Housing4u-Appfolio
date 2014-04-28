@@ -6,13 +6,11 @@
   <div class="content">
     <div class="panel panel-default">
       <div class="panel-body">
-        <% if @show_advanced %>
-          <div class="row">
-            <div class="col-md-12">
-              <%= render partial: 'units/advanced' %>
-            </div>
+        <div class="row">
+          <div class="col-md-12">
+            <%= render partial: 'units/advanced' %>
           </div>
-        <% end %>
+        </div>
         <div class="row">
           <div class="col-md-4 results">
             <%= total_found(@units) %>

@@ -64,7 +64,5 @@ Untitled::Application.routes.draw do
   end
 
   get "/search" => 'units#search'
-  get "/advanced" => 'units#advanced_search'
-
 
 end
