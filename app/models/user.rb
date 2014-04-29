@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   has_many :Units
 
+  validates_format_of :phone_number, :with => /\d{10}/, :allow_blank => true, :if => :phone_number_changed?
+
   def password_required?
     (!password.blank? && !password_confirmation.blank?) || new_record?
   end
