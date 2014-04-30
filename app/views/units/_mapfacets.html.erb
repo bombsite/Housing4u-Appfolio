@@ -1,0 +1,63 @@
+<% if total > 0 %>
+    <div class="sidebar-nav">
+      <div class="well">
+
+        <div class="nav-header">
+          <a data-toggle="collapse" href="#bathrooms">Bathrooms</a>
+        </div>
+        <div id="bathrooms" class="collapse">
+          <ul class="nav nav-list">
+            <% @units.facets['current-bathroom']['terms'].each do |facet| %>
+                <%= render partial: 'units/facet', locals: {term: facet['term'],
+                                                            count: facet['count'],
+                                                            name: facet['term'],
+                                                            search_option:'bathrooms'} %>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="nav-header">
+          <a data-toggle="collapse" href="#bedrooms">Bedrooms</a>
+        </div>
+        <div id="bedrooms" class="collapse">
+          <ul class="nav nav-list">
+            <% @units.facets['current-bedroom']['terms'].each do |facet| %>
+                <%= render partial: 'units/facet', locals: {term: facet['term'],
+                                                            count: facet['count'],
+                                                            name: facet['term'],
+                                                            search_option:'bedrooms'} %>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="nav-header">
+          <a data-toggle="collapse" href="#cities">Cities</a>
+        </div>
+        <div id="cities" class="collapse">
+          <ul class="nav nav-list">
+            <% @units.facets['current-city']['terms'].each do |facet| %>
+                <%= render partial: 'units/facet', locals: {term: facet['term'],
+                                                            count: facet['count'],
+                                                            name: City.find(facet['term']).name,
+                                                            search_option:'city_id'} %>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="nav-header">
+          <a data-toggle="collapse" href="#states">States</a>
+        </div>
+        <div id="states" class="collapse">
+          <ul class="nav nav-list">
+            <% @units.facets['current-state']['terms'].each do |facet| %>
+                <%= render partial: 'units/facet', locals: {term: facet['term'],
+                                                            count: facet['count'],
+                                                            name: State.find(facet['term']).name,
+                                                            search_option:'state_id'} %>
+            <% end %>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+<% end %>
