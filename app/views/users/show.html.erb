@@ -6,7 +6,10 @@
     <div class="panel-heading">
       <div class="panel-title">
         <img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s100" style="vertical-align: bottom"/>
-        <h4 style="display: inline-block">[Insert Full Name Here]</h4>
+        <h4 style="display: inline-block">
+          <%= @user.first_name.nil? ? "First" : @user.first_name %>
+          <%= @user.last_name.nil? ? "Last" : @user.last_name %>
+        </h4>
       </div>
     </div>
     <div class="panel-body">
@@ -14,6 +17,10 @@
           <tr><td><label>Email:</label></td> <td><%= @user.email %></td></tr>
           <tr><td><label>Phone Number:</label></td> <td><%= @user.phone_number %></td></tr>
           <tr><td><label>Company Name:</label></td> <td><%= @user.company_name %></td></tr>
+          <tr><td><label>Gender:</label></td> <td><%= @user.gender %></td></tr>
+          <tr><td><label>Language Spoken:</label></td> <td><%= @user.language_spoken %></td></tr>
+          <tr><td><label>Smoker:</label></td> <td><%= @user.smoker ? "Yes" : "No" %></td></tr>
+          <tr><td><label>Pets:</label></td> <td><%= @user.pets ? "Yes" : "No" %></td></tr>
       </table>
       <a class="btn btn-danger" href="/users/edit">Edit</a>
     </div>

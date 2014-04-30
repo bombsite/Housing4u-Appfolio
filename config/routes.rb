@@ -65,6 +65,7 @@ Untitled::Application.routes.draw do
 
   get "/search" => 'units#search'
   get "/profile" => 'users#show'
+  get "/matching" => 'users#matching'
 
 
 end
