@@ -16,20 +16,20 @@
             <%= total_found(@units) %>
           </div>
           <div class="col-md-4 col-md-offset-4" style="text-align:right;padding-right:16px;">
-            <a href="<%= request.original_url.sub! 'map_view=1', '' %>"><button class="btn btn-primary">List View</button></a>
+            <a href="<%= request.original_url.sub! 'map_view=1', '' %>"><button class="btn btn-primary">List View</button></a><br><br>
           </div>
         </div>
         <div class="row">
 
           <% if @units.respond_to?(:facets) && @units.facets.present? %>
             <div class="col-md-2">
-              <%= render partial: 'units/facets', locals: {total: @units.total} %>
+              <%= render partial: 'units/mapfacets', locals: {total: @units.total} %>
             </div>
           <% end %>
           <div class="<%= (@units.respond_to?(:facets) && @units.facets.present? ? 'col-md-10' : 'col-md-12') %>">
 
-            <div style='width: 800px;'>
-              <div id="map" style='width: 800px; height: 400px;'></div>
+            <div style='width: 100%;'>
+              <div id="map" style='width: 100%; height: 550px;'></div>
             </div>
             <script type="text/javascript">
 
