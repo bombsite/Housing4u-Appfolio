@@ -7,8 +7,8 @@
       <div class="panel-title">
         <img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s100" style="vertical-align: bottom"/>
         <h4 style="display: inline-block">
-          <%= @user.first_name.nil? ? "First" : @user.first_name %>
-          <%= @user.last_name.nil? ? "Last" : @user.last_name %>
+          <%= (@user.first_name.nil? || @user.first_name=="") ? "First" : @user.first_name %>
+          <%= (@user.last_name.nil? || @user.last_name=="") ? "Last" : @user.last_name %>
         </h4>
       </div>
     </div>

@@ -1,52 +1,74 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 center-block" style="float: none">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Edit</h3>
+        </div>
+        <div class="panel-body">
+          <%= devise_error_messages! %>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+          <%= devise_error_messages! %>
 
-    <fieldset>
+            <fieldset>
 
-    <% if params[:match]!="true" %>
+            <% if params[:match]!="true" %>
 
-      <div class="form-group">
-        <%= f.email_field :email, :class => "form-control", :placeholder => "E-mail", :autofocus => true%>
-      </div>
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
-      <div class="form-group">
-        <%= f.password_field :password, :class => "form-control", :autocomplete => "off", :placeholder => "Password (leave blank if you don't want to change it)"%>
-      </div>
-      <div class="form-group">
-        <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Password confirmation (leave blank if you don't want to change it)"%>
-      </div>
-      <div class="form-group">
-        <%= f.text_field :first_name, :class => "form-control", :placeholder => "First Name (Optional)"%>
-      </div>
-      <div class="form-group">
-        <%= f.text_field :last_name, :class => "form-control", :placeholder => "Last Name (Optional)"%>
-      </div>
-      <div class="form-group">
-        <%= f.text_field :phone_number, :class => "form-control", :placeholder => "Phone Number (optional, numbers only)"%>
-      </div>
-      <div class="form-group">
-        <%= f.text_field :company_name, :class => "form-control", :placeholder => "Company Name (optional)"%>
-      </div>
-      <div class="form-group">
-        <%= f.password_field :current_password, :class => "form-control", :autocomplete => "off", :placeholder => "Current Password (we need your current password to confirm your changes)" %>
-      </div>
+              <div class="form-group">
+                <%= f.email_field :email, :class => "form-control", :placeholder => "E-mail", :autofocus => true%>
+              </div>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>
+              <div class="form-group">
+                <%= f.password_field :password, :class => "form-control", :autocomplete => "off", :placeholder => "Password (leave blank if you don't want to change it)"%>
+              </div>
+              <div class="form-group">
+                <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Password confirmation (leave blank if you don't want to change it)"%>
+              </div>
+              <div class="form-group">
+                <%= f.text_field :first_name, :class => "form-control", :placeholder => "First Name (Optional)"%>
+              </div>
+              <div class="form-group">
+                <%= f.text_field :last_name, :class => "form-control", :placeholder => "Last Name (Optional)"%>
+              </div>
+              <div class="form-group">
+                <%= f.text_field :phone_number, :class => "form-control", :placeholder => "Phone Number (optional, numbers only)"%>
+              </div>
+              <div class="form-group">
+                <%= f.text_field :company_name, :class => "form-control", :placeholder => "Company Name (optional)"%>
+              </div>
+              <div class="form-group">
+                <%= f.password_field :current_password, :class => "form-control", :autocomplete => "off", :placeholder => "Current Password (Only needed if password/email changed)" %>
+              </div>
 
-      <% else %>
+              <div class="form-group">
+                <%= f.hidden_field :matching, :value => "false" %>
+              </div>
 
-      <div class="form-group">
-        <%= f.label :bed_before_11pm, "I go to bed before 11pm" %>
-        <%= f.select :bed_before_11pm, :class => "form-control", [["Yes" => true], ["No" => false]]%>
+              <% else %>
+
+              <div class="form-group">
+                <%= f.label :bed_before_11pm, "I go to bed before 11pm" %>
+                <%= f.select :bed_before_11pm, {"Yes" => true, "No" => false}, :class => "form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.hidden_field :matching, :value => "true" %>
+              </div>
+
+              <% end %>
+
+          <div><%= f.submit "Update", :class=>"btn btn-lg btn-success btn-block" %></div>
+            </fieldset>
+        <% end %>
+
+        </div>
       </div>
-
-      <% end %>
-
-  <div><%= f.submit "Update", :class=>"btn btn-lg btn-success btn-block" %></div>
-    </fieldset>
-<% end %>
+    </div>
+  </div>
+</div>
 
 <% if params[:match]!="true" %>
 
@@ -56,4 +78,4 @@
 
 <% end %>
 
-<%= link_to "Back", :back %>
+<%= link_to "Back", :back%>
