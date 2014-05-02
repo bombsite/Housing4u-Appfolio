@@ -50,8 +50,24 @@
               <% else %>
 
               <div class="form-group">
-                <%= f.label :bed_before_11pm, "I go to bed before 11pm" %>
+                <%= f.label :bed_before_11pm, "Do you go to bed before 11pm?" %>
                 <%= f.select :bed_before_11pm, {"Yes" => true, "No" => false}, :class => "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :wake_before_9am, "Do you go to wake up before 9am?" %>
+                <%= f.select :wake_before_9am, {"Yes" => true, "No" => false}, :class => "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :music_often, "Do you play music often?" %>
+                <%= f.select :music_often, {"Yes" => true, "No" => false}, :class => "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :visitors_often, "Do you have visitors over often?" %>
+                <%= f.select :visitors_often, {"Yes" => true, "No" => false}, :class => "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :social, "Do you think the house is mainly for socializing?" %>
+                <%= f.select :social, {"Yes" => true, "No" => false}, :class => "form-control" %>
               </div>
 
               <div class="form-group">
