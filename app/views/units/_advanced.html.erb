@@ -3,7 +3,7 @@
     <div class="panel-heading">
       <div class="panel-title">
         <h4>
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Advanced Search</a>
+          Search
         </h4>
       </div>
     </div>
@@ -27,20 +27,18 @@
             </div>
             <div class="row">
               <div class="col-md-6">
-                <label for="unit-info">City</label>
-                <%=
-                    if params[:search][:state_id].nil?
-                      options = City.order(:name)
-                      else
-                      options = City.where(state_id: params[:search][:state_id]).order(:name)
-                    end
-                    select_tag "search[city_id]", options_from_collection_for_select(options, :id, :name, params[:search][:city_id]), class: "form-control", :prompt => "Select City"
-                %>
-              </div>
-              <div class="col-md-6">
                 <label for="unit-info">State</label>
                 <%= select_tag "search[state_id]", options_from_collection_for_select(State.order(:name), :id, :name, params[:search][:state_id]), class: "form-control", :prompt => 'Select State' %>
               </div>
+              <% unless params[:search][:state_id].nil? %>
+                <div class="col-md-6">
+                  <label for="unit-info">City</label>
+                  <%=
+                      options = City.where(state_id: params[:search][:state_id]).order(:name)
+                      select_tag "search[city_id]", options_from_collection_for_select(options, :id, :name, params[:search][:city_id]), class: "form-control", :prompt => "Select City"
+                  %>
+                </div>
+              <% end %>
             </div>
             <br />
             <div class="row">
