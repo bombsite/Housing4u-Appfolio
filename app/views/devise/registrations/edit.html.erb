@@ -148,9 +148,12 @@
                     </li>
                   </ul>
 
-              <div class="form-group">
-                <%= f.hidden_field :matching, :value => "true" %>
-              </div>
+                  <div class="form-group">
+                    <%= f.hidden_field :matching, :value => "true" %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.hidden_field :survey_completed, :value => true %>
+                  </div>
 
               <% end %>
 

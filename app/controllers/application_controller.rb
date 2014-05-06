@@ -19,6 +19,6 @@ class ApplicationController < ActionController::Base
         :phone_number , :company_name , :first_name , :last_name , :gender , :smoker , :language_spoken , :pets ,
         :bed_before_11pm , :wake_before_9am , :music_often , :visitors_often , :social , :smoker_accepted ,
         :pets_accepted , { bed_before_11pm_accepted: [] }, { wake_before_9am_accepted: [] }, { music_often_accepted: [] },
-        { visitors_often_accepted: [] }, { social_accepted: [] }) }
+        { visitors_often_accepted: [] }, { social_accepted: [] }, :survey_completed) }
   end
 end

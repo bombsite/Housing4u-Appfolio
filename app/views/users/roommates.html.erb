@@ -1,0 +1,8 @@
+<% title "Roommate Matching" %>
+
+<% if @user.survey_completed %>
+    <p>[INSERT ROOMMATE MATCHING RESULTS HERE]</p>
+<% else %>
+    <META http-equiv="refresh" content="10;URL=/users/edit?match=true">
+    <p> You have not completed the roommate matching survey. You will be redirected in 10 seconds or you can click <a href="/users/edit?match=true">here</a> to go directly.</p>
+<% end %>

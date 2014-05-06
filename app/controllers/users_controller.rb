@@ -5,5 +5,9 @@ class UsersController < ApplicationController
 
   def matching
     @user = current_user
+    end
+
+  def roommates
+    @user = current_user
   end
 end

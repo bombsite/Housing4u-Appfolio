@@ -1,5 +1,9 @@
 <% title "Profile" %>
 
+<% if !@user.survey_completed %>
+    <META http-equiv="refresh" content="10;URL=/users/edit?match=true">
+<% end %>
+
 
 <div class="content">
   <div class="panel panel-default">
@@ -13,6 +17,7 @@
       </div>
     </div>
     <div class="panel-body">
+      <% if @user.survey_completed %>
       <table class="table table-striped">
         <tr><td><label>Gender:</label></td> <td><%= @user.gender %></td></tr>
         <tr><td><label>Language Spoken:</label></td> <td><%= @user.language_spoken %></td></tr>
@@ -25,6 +30,9 @@
         <tr><td><label>The house is mainly for socializing:</label></td> <td><%= @user.social ? "Yes" : "No" %></td></tr>
       </table>
       <a class="btn btn-danger" href="/users/edit?match=true">Edit</a>
+      <% else %>
+      <p> You have not completed the roommate matching survey. You will be redirected in 10 seconds or you can click <a href="/users/edit?match=true">here</a> to go directly.</p>
+      <% end %>
     </div>
   </div>
 </div>
