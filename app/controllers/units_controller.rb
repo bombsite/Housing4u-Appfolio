@@ -18,14 +18,6 @@ class UnitsController < ApplicationController
 
   def show
     @unit = Unit.find(params[:id])
-    client = Yelp::Client.new
-
-
-    request = GeoPoint.new(
-        :latitude => 37.782093,
-        :longitude => -122.483230)
-    response = client.search(request)
-    puts response
   end
 
   def search

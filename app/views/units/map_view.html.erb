@@ -40,10 +40,21 @@
                         $('#map').gmap('openInfoWindow', {'content': '<%= link_to unit.formatted_address, unit_url(unit) %>'}, this);
                     });
                     <% end %>
-                    $("#map").gmap('option', 'zoom', 7);
+                    if(!localStorage.getItem("zoom"))
+                    {
+                        $("#map").gmap('option', 'zoom', 7);
+                    }
+                    else
+                    {
+                        $("#map").gmap('option', 'zoom', parseInt(localStorage.getItem("zoom")));
+                    }
+
+                    $(map).addEventListener('zoom_changed', function() {
+                        zoomLevel = map.getZoom();
+                        localStorage.setItem("zoom", zoomLevel);
+                    });
 
                 });
-
             </script>
           </div>
         </div>
