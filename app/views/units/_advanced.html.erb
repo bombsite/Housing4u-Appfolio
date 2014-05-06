@@ -54,6 +54,9 @@
               </div>
             </div>
             <br />
+            <% if params[:map_view] %>
+                <input type="hidden" name="map_view" value="1" />
+           <% end %>
             <button class="btn btn-danger" type="submit">Submit</button>
           </form>
         </div>
