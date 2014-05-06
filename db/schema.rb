@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 201405060000011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "adminpack"
 
   create_table "cities", force: true do |t|
     t.string  "name"
@@ -106,6 +105,7 @@ ActiveRecord::Schema.define(version: 201405060000011) do
     t.text     "visitors_often_accepted"
     t.text     "social_accepted"
     t.boolean  "survey_completed",         default: false
+    t.string   "fb_photo_url"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

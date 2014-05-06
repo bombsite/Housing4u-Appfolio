@@ -30,10 +30,12 @@ class User < ActiveRecord::Base
       if registered_user
         return registered_user
       else
-        user = User.create(#name:auth.extra.raw_info.name,
+        user = User.create(first_name:auth.info.first_name,
+                           last_name:auth.info.last_name,
                            #provider:auth.provider,
                            #uid:auth.uid,
                            email:auth.info.email,
+                           fb_photo_url:auth.info.image,
                            password:Devise.friendly_token[0,20],
         )
       end    end
