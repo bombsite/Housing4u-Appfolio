@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140429000009) do
+ActiveRecord::Schema.define(version: 201405050000010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,12 +64,12 @@ ActiveRecord::Schema.define(version: 20140429000009) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                    default: "",    null: false
+    t.string   "encrypted_password",       default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",            default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20140429000009) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",        default: 0,     null: false
+    t.integer  "failed_attempts",          default: 0,     null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.datetime "created_at"
@@ -90,14 +90,21 @@ ActiveRecord::Schema.define(version: 20140429000009) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "gender"
-    t.boolean  "smoker",                 default: false
+    t.boolean  "smoker",                   default: false
     t.string   "language_spoken"
-    t.boolean  "pets",                   default: false
-    t.boolean  "bed_before_11pm",        default: false
-    t.boolean  "wake_before_9am",        default: false
-    t.boolean  "music_often",            default: false
-    t.boolean  "visitors_often",         default: false
-    t.boolean  "social",                 default: false
+    t.boolean  "pets",                     default: false
+    t.boolean  "bed_before_11pm",          default: false
+    t.boolean  "wake_before_9am",          default: false
+    t.boolean  "music_often",              default: false
+    t.boolean  "visitors_often",           default: false
+    t.boolean  "social",                   default: false
+    t.boolean  "smoker_accepted",          default: false
+    t.boolean  "pets_accepted",            default: false
+    t.text     "bed_before_11pm_accepted"
+    t.text     "wake_before_9am_accepted"
+    t.text     "music_often_accepted"
+    t.text     "visitors_often_accepted"
+    t.text     "social_accepted"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

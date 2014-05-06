@@ -14,6 +14,10 @@
     </div>
     <div class="panel-body">
       <table class="table table-striped">
+        <tr><td><label>Gender:</label></td> <td><%= @user.gender %></td></tr>
+        <tr><td><label>Language Spoken:</label></td> <td><%= @user.language_spoken %></td></tr>
+        <tr><td><label>Smoker:</label></td> <td><%= @user.smoker ? "Yes" : "No" %></td></tr>
+        <tr><td><label>Pets:</label></td> <td><%= @user.pets ? "Yes" : "No" %></td></tr>
         <tr><td><label>Sleep before 11pm:</label></td> <td><%= @user.bed_before_11pm ? "Yes" : "No" %></td></tr>
         <tr><td><label>Wake up before 9am:</label></td> <td><%= @user.wake_before_9am ? "Yes" : "No" %></td></tr>
         <tr><td><label>Play music often:</label></td> <td><%= @user.music_often ? "Yes" : "No" %></td></tr>
