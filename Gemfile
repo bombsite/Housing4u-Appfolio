@@ -42,6 +42,8 @@ gem 'tire'
 #db foreigner
 gem 'foreigner'
 
+gem 'gzip'
+
 #paging
 gem 'kaminari'
 

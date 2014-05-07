@@ -68,5 +68,6 @@ Untitled::Application.routes.draw do
   get "/matching" => 'users#matching'
   get "/roommates" => 'users#roommates'
 
+  get "/walkscore" => 'units#walkscore'
 
 end

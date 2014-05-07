@@ -20,6 +20,7 @@
             <b>Map</b>
           </td>
           <td>
+            <div id="walkscore-div">&nbsp;</div>
             <div style='width: 800px;'>
               <div id="map" style='width: 800px; height: 400px;'></div>
             </div>
@@ -65,5 +66,46 @@
 <script type="text/javascript">
   $(document).ready(function() {
       $('.fancybox').fancybox();
+
+
+      var url="/walkscore?lat=" + <%=@unit.latitude %> + "&lon=" + <%=@unit.longitude %>;
+      $.ajax( {
+                  url: url,
+                  type:'GET',
+                  success: function(data) { displayWalkScores($.parseJSON(data)); },
+                  error: function(){ displayWalkScores(""); }
+              }
+      );
+
+      //to demonstrate all of our formatting options, we'll pass the json on to a series of display functions.
+      //in practice, you'll only need one of these, and the ajax call could call it directly as it's onSuccess callback
+      function displayWalkScores(jsonStr) {
+          displayWalkScore(jsonStr);
+      }
+
+      //show the walk score -- inserts walkscore html into the page.  Also needs CSS from top of file
+      function displayWalkScore(jsonStr) {
+          var json=(jsonStr) ? eval('(' + jsonStr + ')') : ""; //if no response, bypass the eval
+
+          //if we got a score
+          if (json && json.status == 1) {
+              var htmlStr = '<a target="_blank" href="' + json.ws_link + '"><img src="' + json.logo_url + '" /><span class="walkscore-scoretext">' + json.walkscore + '</span></a>';
+          }
+          //if no score was available
+          else if (json && json.status == 2) {
+              var htmlStr = '<a target="_blank" href="' + json.ws_link + '"><img src="' + json.logo_url + '" /> <span class="walkscore-noscoretext">Get Score</span></a>';
+          }
+          //if didn't even get a json response
+          else {
+              var htmlStr = '<a target="_blank" href="http://www.walkscore.com"><img src="http://cdn.walk.sc/images/api-logo.gif" /> <span class="walkscore-noscoretext">Get Score</span></a> ';
+          }
+          var infoIconHtml = '<span id="ws_info"><a href="http://www.walkscore.com/live-more" target="_blank"><img src="http://cdn2.walk.sc/2/images/api-more-info.gif" width="13" height="13"" /></a></span>';
+
+          //if you want to wrap extra tags around the html, can do that here before inserting into page element
+          htmlStr = '<p>' + htmlStr + infoIconHtml + '</p>';
+
+          //insert our new content into the container div:
+          $("#walkscore-div").html(htmlStr);
+      }
   });
 </script>
