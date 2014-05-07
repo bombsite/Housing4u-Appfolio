@@ -13,7 +13,6 @@ class UnitsController < ApplicationController
       render 'map_view'
     else
       render 'index'
-
     end
   end
 
