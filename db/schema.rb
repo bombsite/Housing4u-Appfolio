@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 201405060000011) do
     t.boolean  "music_often",              default: false
     t.boolean  "visitors_often",           default: false
     t.boolean  "social",                   default: false
+    t.string   "fb_url_photo"
     t.boolean  "smoker_accepted",          default: false
     t.boolean  "pets_accepted",            default: false
     t.text     "bed_before_11pm_accepted"
