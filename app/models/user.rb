@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
                            last_name:auth.info.last_name,
                            #provider:auth.provider,
                            #uid:auth.uid,
+                           
                            email:auth.info.email,
                            fb_photo_url:auth.info.image,
                            password:Devise.friendly_token[0,20],

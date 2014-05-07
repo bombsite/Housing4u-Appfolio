@@ -1,7 +1,52 @@
 <% title "Roommate Matching" %>
 
 <% if @user.survey_completed %>
-    <p>[INSERT ROOMMATE MATCHING RESULTS HERE]</p>
+    <% User.all.each do |u| %>
+        <% if u.email != @user.email %>
+            <% if u.survey_completed == TRUE %>
+                <% @i = 0 %>
+                <% if u.gender == @user.gender %>
+                    <p><% @i += 1 %></p>
+                <% end %>
+                <% if u.language_spoken == @user.language_spoken %>
+                    <p><% @i += 1 %></p>
+                <% end %>
+                <% if u.smoker == @user.smoker %>
+                    <p><% @i += 1 %></p>
+                <% end %>
+                <% if u.pets == @user.pets %>
+                    <p><% @i += 1 %></p>
+                <% end %>
+                <% if u.bed_before_11pm == @user.bed_before_11pm %>
+                    <p><% @i += 1 %></p>
+                <% end %>
+                <% if @user.bed_before_11pm_accepted.include?(u.bed_before_11pm ? "Yes" : "No") %>
+                    <p><% @i += 1 %></p>
+                <% end %>
+                <% if u.wake_before_9am == @user.wake_before_9am %>
+                    <p><% @i += 1 %></p>
+                <% end %>
+                <% if @user.wake_before_9am_accepted.include?(u.wake_before_9am ? "Yes" : "No") %>
+                    <p><% @i += 1 %></p>
+                <% end %>
+                <% if u.music_often == @user.music_often %>
+                    <p><% @i += 1 %></p>
+                <% end %>
+                <% if @user.music_often_accepted.include?(u.music_often ? "Yes" : "No") %>
+                    <p><% @i += 1 %></p>
+                <% end %>
+                <% if u.visitors_often == @user.visitors_often %>
+                    <p><% @i += 1 %></p>
+                <% end %>
+                <% if @user.visitors_often_accepted.include?(u.visitors_often ? "Yes" : "No") %>
+                    <p><% @i += 1 %></p>
+                <% end %>
+                <% if @i > 6 %>
+                    <h3><img src="http://robertrosenthal.typepad.com/photos/uncategorized/ist_2.jpg" width="100" height="66"> <%=u.email%> matched you <%= ((@i/12.0)*100).to_int %>%</h3>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% end %>
 <% else %>
     <META http-equiv="refresh" content="10;URL=/users/edit?match=true">
     <p> You have not completed the roommate matching survey. You will be redirected in 10 seconds or you can click <a href="/users/edit?match=true">here</a> to go directly.</p>
