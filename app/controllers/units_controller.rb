@@ -1,6 +1,8 @@
 class UnitsController < ApplicationController
   include Tire::Model::Search
   include Yelp::V1::Review::Request
+  require 'net/http'
+
   def index
     params[:search] ||={}
 
@@ -28,4 +30,12 @@ class UnitsController < ApplicationController
 
     render 'index'
   end
+
+  def walkscore
+
+    result = Net::HTTP.get(URI.parse('http://api.walkscore.com/score?format=json&lat=' + params[:latitude] + '&lon=' + params[:longitude] + '&wsapikey=6903c6db94b91a3d32dfb5eaa9c724fd'))
+
+    render :json => result
+  end
+
 end

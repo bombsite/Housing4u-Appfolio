@@ -67,14 +67,22 @@
   $(document).ready(function() {
       $('.fancybox').fancybox();
 
-      var url="http://api.walkscore.com/score?format=json&lat=<%= @unit.latitude %>&lon=<%= @unit.longitude %>&wsapikey=6903c6db94b91a3d32dfb5eaa9c724fd";
+
+      var url="/walkscore?lat=" + <%=@unit.latitude %> + "&lon=" + <%=@unit.longitude %>;
       $.ajax( {
                   url: url,
                   type:'GET',
                   success: function(data) { displayWalkScores($.parseJSON(data)); },
-                  error: function(){}
+                  error: function(){ displayWalkScores(""); }
               }
       );
+
+      //to demonstrate all of our formatting options, we'll pass the json on to a series of display functions.
+      //in practice, you'll only need one of these, and the ajax call could call it directly as it's onSuccess callback
+      function displayWalkScores(jsonStr) {
+          displayWalkScore(jsonStr);
+      }
+
       //show the walk score -- inserts walkscore html into the page.  Also needs CSS from top of file
       function displayWalkScore(jsonStr) {
           var json=(jsonStr) ? eval('(' + jsonStr + ')') : ""; //if no response, bypass the eval
