@@ -4,7 +4,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <div class="panel-title">
-        <img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s100" style="vertical-align: bottom"/>
+        <img src="<%= @user.fb_photo_url.nil? ? "https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s100" : @user.fb_photo_url%>" style="vertical-align: bottom"/>
         <h4 style="display: inline-block">
           <%= @user.first_name.nil? ? "First" : @user.first_name %>
           <%= @user.last_name.nil? ? "Last" : @user.last_name %>
