@@ -16,4 +16,8 @@ class UsersController < ApplicationController
     @i = 0
     @max = 0
   end
+
+  def viewuser
+      @user = User.find(params[:id])
+  end
 end

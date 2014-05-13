@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 201405060000011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "adminpack"
 
   create_table "cities", force: true do |t|
     t.string  "name"
@@ -97,7 +98,6 @@ ActiveRecord::Schema.define(version: 201405060000011) do
     t.boolean  "music_often",              default: false
     t.boolean  "visitors_often",           default: false
     t.boolean  "social",                   default: false
-    t.string   "fb_url_photo"
     t.boolean  "smoker_accepted",          default: false
     t.boolean  "pets_accepted",            default: false
     t.text     "bed_before_11pm_accepted"
