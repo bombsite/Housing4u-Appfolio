@@ -1,0 +1,28 @@
+<% title @user.email.to_s + "'s Profile" %>
+
+<div class="content">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">
+        <img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s100" style="vertical-align: bottom"/>
+        <h4 style="display: inline-block">
+          <%= @user.first_name.nil? ? "First" : @user.first_name %>
+          <%= @user.last_name.nil? ? "Last" : @user.last_name %>
+        </h4>
+      </div>
+    </div>
+    <div class="panel-body">
+          <table class="table table-striped">
+            <tr><td><label>Gender:</label></td> <td><%= @user.gender %></td></tr>
+            <tr><td><label>Language Spoken:</label></td> <td><%= @user.language_spoken %></td></tr>
+            <tr><td><label>Smoker:</label></td> <td><%= @user.smoker ? "Yes" : "No" %></td></tr>
+            <tr><td><label>Pets:</label></td> <td><%= @user.pets ? "Yes" : "No" %></td></tr>
+            <tr><td><label>Sleep before 11pm:</label></td> <td><%= @user.bed_before_11pm ? "Yes" : "No" %></td></tr>
+            <tr><td><label>Wake up before 9am:</label></td> <td><%= @user.wake_before_9am ? "Yes" : "No" %></td></tr>
+            <tr><td><label>Play music often:</label></td> <td><%= @user.music_often ? "Yes" : "No" %></td></tr>
+            <tr><td><label>Have visitors over often:</label></td> <td><%= @user.visitors_often ? "Yes" : "No" %></td></tr>
+            <tr><td><label>The house is mainly for socializing:</label></td> <td><%= @user.social ? "Yes" : "No" %></td></tr>
+          </table>
+    </div>
+  </div>
+</div>

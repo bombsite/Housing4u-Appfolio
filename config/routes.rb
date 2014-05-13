@@ -67,6 +67,7 @@ Untitled::Application.routes.draw do
   get "/profile" => 'users#show'
   get "/matching" => 'users#matching'
   get "/roommates" => 'users#roommates'
+  get "/viewuser" => 'users#viewuser'
 
   get "/walkscore" => 'units#walkscore'
 
