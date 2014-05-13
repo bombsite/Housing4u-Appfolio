@@ -21,7 +21,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Housing-4U</a>
+     <%= link_to image_tag("logo.fw.png"), "/", id: "", class: "navbar-brand" %> <!-- LOGO -->
+
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -51,16 +52,6 @@
 
 
 <div class="container container-space" role="main">
-
-  <div class="row-fluid">
-    <div class="col-md-6">
-      <img border="0" src="http://i.imgur.com/smqRIX7.png" width="362" height="101"> <!-- LOGO -->
-
-    </div>
-  </div>
-  <div style="clear:both;"></div>
-  <br />
-
 
   <% if notice %>
       <div class="row">
