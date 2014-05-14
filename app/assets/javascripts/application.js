@@ -15,4 +15,5 @@
 //= require bootstrap.min
 //= require jquery.fancybox.js
 //= require jquery.ui.map.full.min.js
+//= require select2.min.js
 //= require_tree .
