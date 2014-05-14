@@ -4,11 +4,17 @@
       <strong><%= link_to unit.ad_headline, unit_url(unit) %></strong>
     </h4>
     <div>
-
+      <% unit.UnitPhotos.take(2).each do |unit_photos| %>
+          <img border="0" src="<%= unit_photos.image_url %>" width="350" height="262">
+      <% end %>
     </div>
     <div class="well">
         <h3>Description</h3>
-          <%= raw hit['highlight']['ad_content'].map(&:inspect).join(',').gsub('"', '') if hit['highlight']['ad_content'] %>
+          <% unless hit['highlight'].nil? %>
+            <%=raw hit['highlight']['ad_content'].map(&:inspect).join(',').gsub('"', '') if hit['highlight']['ad_content'] %>
+          <% else %>
+             <%= unit.ad_content %>
+          <% end %>
 
     </div>
     <div class="well">
