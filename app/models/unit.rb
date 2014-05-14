@@ -70,8 +70,8 @@ class Unit < ActiveRecord::Base
           rent_max = search_conditions['rent_max'].present? ? search_conditions['rent_max'] : 99999999
 
           must { range :rent_max, { gte: rent_min, lte: rent_max } }
-
         end
+
       end
 
       #highlight :ad_headline, :ad_content, :options => { :tag => '<strong class="highlight">' }
@@ -84,6 +84,9 @@ class Unit < ActiveRecord::Base
       page = (options[:page] || 1).to_i
       from (page -1) * search_size
       size search_size
+
+      highlight :ad_content, :options => { :tag => '<strong>' }
+
 
       #facets
       facet('current-city') { terms :city_id }
