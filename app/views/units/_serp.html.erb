@@ -101,7 +101,6 @@
                   <% end %>
 
                 </p>
-                <p><strong>Rent: </strong> $<%=unit.rent_max%> </p>
                 <% if unit.deposit_max != nil %>
                     <p><strong>Security Deposit:</strong> $<%=unit.deposit_max%></p>
                 <% end %>
@@ -113,13 +112,10 @@
 
                       <p><strong>Address:</strong> <%=unit.property_address%>, <%=unit.property_postal_code %></p>
                 <% end %>
-                <% if unit.city.name != nil %>
-                    <p><strong>City:</strong> <%=unit.city.name %></p>
+                <% if unit.city.name != nil and unit.state.name != nil %>
+                    <p><strong>Location:</strong> <%=unit.city.name %>, <%=unit.state.name %></p>
                 <% end %>
-                <% if unit.state.name != nil %>
-                    <p><strong>State:</strong> <%=unit.state.name %></p>
 
-                <% end %>
                 <% if unit.square_foot_min != nil %>
                       <p><strong>Square Footage:</strong> <%=unit.square_foot_min%></p>
 
