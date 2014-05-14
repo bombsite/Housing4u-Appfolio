@@ -142,11 +142,11 @@
 
               </div>
               <div class="col-xs-12 col-sm-4 emphasis">
-                <h2><strong><%=unit.bedrooms%></strong></h2>
+                <h2><strong><%=unit.bedrooms.nil? ? "-" : unit.bedrooms %></strong></h2>
                 <p><small>Bedrooms</small></p>
               </div>
               <div class="col-xs-12 col-sm-4 emphasis">
-                <h2><strong><%=unit.bathrooms%></strong></h2>
+                <h2><strong><%=unit.bathrooms.nil? ? "-" : unit.bathrooms%></strong></h2>
                 <p><small>Bathrooms</small></p>
               </div>
             </div>
