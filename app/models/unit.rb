@@ -55,7 +55,7 @@ class Unit < ActiveRecord::Base
 
   def self.advanced_search(search_conditions, search_size, options={})
 
-    fields = [:ad_headline, :ad_content, :city_id, :state_id, :bathrooms, :bedrooms]
+    fields = [:ad_content, :city_id, :state_id, :bathrooms, :bedrooms]
 
     search = Tire.search Unit.tire.index.name, load:true do
 
