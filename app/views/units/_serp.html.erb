@@ -1,66 +1,162 @@
-
+<style type="text/css">
+    @import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+    body
+    {
+        font-family: 'Lato', 'sans-serif';
+    }
+    .profile
+    {
+        min-height: 355px;
+        display: inline-block;
+    }
+    figcaption.ratings
+    {
+        margin-top:20px;
+    }
+    figcaption.ratings a
+    {
+        color:#f1c40f;
+        font-size:11px;
+    }
+    figcaption.ratings a:hover
+    {
+        color:#f39c12;
+        text-decoration:none;
+    }
+    .divider
+    {
+        border-top:1px solid rgba(0,0,0,0.1);
+    }
+    .emphasis
+    {
+        border-top: 4px solid transparent;
+    }
+    .emphasis:hover
+    {
+        border-top: 4px solid #1abc9c;
+    }
+    .emphasis h2
+    {
+        margin-bottom:0;
+    }
+    span.tags
+    {
+        background: #1abc9c;
+        border-radius: 2px;
+        color: #f5f5f5;
+        font-weight: bold;
+        padding: 2px 4px;
+    }
+    .dropdown-menu
+    {
+        background-color: #34495e;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        width: 250px;
+        margin-left: -125px;
+        left: 50%;
+    }
+    .dropdown-menu .divider
+    {
+        background:none;
+    }
+    .dropdown-menu>li>a
+    {
+        color:#f5f5f5;
+    }
+    .dropup .dropdown-menu
+    {
+        margin-bottom:10px;
+    }
+    .dropup .dropdown-menu:before
+    {
+        content: "";
+        border-top: 10px solid #34495e;
+        border-right: 10px solid transparent;
+        border-left: 10px solid transparent;
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        margin-left: -10px;
+        z-index: 10;
+    }
+</style>
 <% @units.each_with_hit do |unit, hit| %>
-    <h4 class="alert alert-info">
-      <strong><%= link_to unit.ad_headline, unit_url(unit) %></strong>
-    </h4>
-    <div>
-      <% unit.UnitPhotos.take(2).each do |unit_photos| %>
-          <img border="0" src="<%= unit_photos.image_url %>" width="350" height="262">
-      <% end %>
-    </div>
-    <div class="well">
-        <h3>Description</h3>
-          <% unless hit['highlight'].nil? %>
-            <%=raw hit['highlight']['ad_content'].map(&:inspect).join(',').gsub('"', '') if hit['highlight']['ad_content'] %>
-          <% else %>
-             <%= unit.ad_content %>
-          <% end %>
 
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+    <div class="">
+      <div class="">
+        <div class="">
+          <div class="well profile">
+            <h2><%= link_to truncate(unit.ad_headline, length: 50), unit_url(unit) %></h2>
+            <br />
+            <div class="row">
+              <div class="col-xs-6 col-sm-6">
+                <p>
+                    <strong>Description: </strong>
+                  <% unless hit['highlight'].nil? %>
+                      <%=raw hit['highlight']['ad_content'].map(&:inspect).join(',').gsub('"', '') if hit['highlight']['ad_content'] %>
+                  <% else %>
+                      <%= truncate(unit.ad_content, length: 300, omission: '... (continued)') %>
+                  <% end %>
+
+                </p>
+                <p><strong>Rent: </strong> $<%=unit.rent_max%> </p>
+                <% if unit.deposit_max != nil %>
+                    <p><strong>Security Deposit:</strong> $<%=unit.deposit_max%></p>
+                <% end %>
+
+                <% if unit.lease_application_fee != nil %>
+                    <p><strong>Application Fee:</strong> $<%=unit.lease_application_fee%></p>
+                <% end %>
+                <% if unit.property_address != nil %>
+
+                      <p><strong>Address:</strong> <%=unit.property_address%>, <%=unit.property_postal_code %></p>
+                <% end %>
+                <% if unit.city.name != nil %>
+                    <p><strong>City:</strong> <%=unit.city.name %></p>
+                <% end %>
+                <% if unit.state.name != nil %>
+                    <p><strong>State:</strong> <%=unit.state.name %></p>
+
+                <% end %>
+                <% if unit.square_foot_min != nil %>
+                      <p><strong>Square Footage:</strong> <%=unit.square_foot_min%></p>
+
+                <% end %>
+                <% if unit.amenities != '' %>
+                      <p><strong>Amenities:</strong> <%=unit.amenities%></p>
+
+                <% end %>
+
+              </div>
+              <div class="col-xs-4 col-sm-4 text-center">
+                <figure>
+                  <% unit.UnitPhotos.take(1).each do |unit_photos| %>
+                      <img border="0" src="<%= unit_photos.image_url %>" width="350" height="262">
+                  <% end %>
+
+                </figure>
+              </div>
+            </div>
+            <div class="col-xs-12 divider text-center">
+              <div class="col-xs-12 col-sm-4 emphasis">
+                <h2><strong> $ <%=unit.rent_max%> </strong></h2>
+                <p><small>Rent</small></p>
+
+              </div>
+              <div class="col-xs-12 col-sm-4 emphasis">
+                <h2><strong><%=unit.bedrooms%></strong></h2>
+                <p><small>Bedrooms</small></p>
+              </div>
+              <div class="col-xs-12 col-sm-4 emphasis">
+                <h2><strong><%=unit.bathrooms%></strong></h2>
+                <p><small>Bathrooms</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="well">
-      <h3>Rental Terms</h3>
-      <ul class="list-group">
-        <% if unit.rent_max != nil %>
-            <li class="list-group-item">
-              <strong>Rent:</strong> $<%=unit.rent_max%>
-        <% end %>
-        <% if unit.deposit_max != nil %>
-            <br><strong>Security Deposit:</strong> $<%=unit.deposit_max%>
-            <% unit.city.name %>
-        <% end %>
-        <% if unit.lease_application_fee != nil %>
-            <br><strong>Application Fee:</strong> $<%=unit.lease_application_fee%>
-            </li>
-        <% end %>
-        <% if unit.property_address != nil %>
-            <li class="list-group-item">
-              <strong>Address:</strong> <%=unit.property_address%>, <%=unit.property_postal_code %>
-        <% end %>
-        <% if unit.city.name != nil %>
-            <br><strong>City:</strong> <%=unit.city.name %>
-        <% end %>
-        <% if unit.state.name != nil %>
-            <br><strong>State:</strong> <%=unit.state.name %>
-            </li>
-        <% end %>
-        <% if unit.square_foot_min != nil %>
-            <li class="list-group-item">
-              <strong>Square Footage:</strong> <%=unit.square_foot_min%>
-            </li>
-        <% end %>
-        <% if unit.bedrooms != nil %>
-            <li class="list-group-item">
-              <strong>Bedrooms:</strong> <%=unit.bedrooms%>
-        <% end %>
-        <% if unit.bathrooms != nil %>
-            <br><strong>Bathrooms:</strong> <%=unit.bathrooms%>
-            </li>
-        <% end %>
-        <% if unit.amenities != '' %>
-            <li class="list-group-item">
-              <strong>Amenities:</strong> <%=unit.amenities%>
-            </li>
-        <% end %>
-      </ul>
-    </div>
+    <hr />
 <% end %>
