@@ -48,10 +48,13 @@
   </div>
 </div>
 
+  <% if @units.respond_to?(:facets) && @units.facets.present? %>
+      <div class="col-md-2">
+        <%= render partial: 'units/facets', locals: {total: @units.total} %>
+      </div>
+  <% end %>
 
-
-
-<div class="container container-space" role="main">
+<div class="container container-space container-fluid" role="main">
 
   <% if notice %>
       <div class="row">
@@ -67,6 +70,8 @@
   <%= yield %>
 
 </div>
+
+
 
 </body>
 </html>

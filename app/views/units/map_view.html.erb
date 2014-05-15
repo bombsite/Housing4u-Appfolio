@@ -18,13 +18,7 @@
 
         </div>
         <div class="row">
-
-          <% if @units.respond_to?(:facets) && @units.facets.present? %>
-            <div class="col-md-2">
-              <%= render partial: 'units/mapfacets', locals: {total: @units.total} %>
-            </div>
-          <% end %>
-          <div class="<%= (@units.respond_to?(:facets) && @units.facets.present? ? 'col-md-10' : 'col-md-12') %>">
+          <div class="col-md-12">
 
             <div style='width: 100%;'>
               <div id="map" style='width: 100%; height: 550px;'></div>

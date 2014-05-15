@@ -2,20 +2,6 @@
     <div class="sidebar-nav">
       <div class="well">
 
-        <div class="nav-header">
-          <a data-toggle="collapse" href="#bathrooms" class="btn btn-success btn-block" role="button">Bathrooms</a>
-        </div>
-        <div id="bathrooms" class="collapse">
-          <ul class="nav nav-list">
-            <% @units.facets['current-bathroom']['terms'].each do |facet| %>
-                <%= render partial: 'units/facet', locals: {term: facet['term'],
-                                                            count: facet['count'],
-                                                            name: facet['term'],
-                                                            search_option:'bathrooms'} %>
-            <% end %>
-          </ul>
-        </div>
-
         <div class="nav-header" style="padding-top:8px;">
           <a data-toggle="collapse" href="#bedrooms" class="btn btn-success btn-block" role="button">Bedrooms</a>
         </div>
@@ -30,30 +16,16 @@
           </ul>
         </div>
 
-        <div class="nav-header" style="padding-top:8px;">
-          <a data-toggle="collapse" href="#cities" class="btn btn-success btn-block" role="button">Cities</a>
+        <div class="nav-header">
+          <a data-toggle="collapse" href="#bathrooms" class="btn btn-success btn-block" role="button">Bathrooms</a>
         </div>
-        <div id="cities" class="collapse">
+        <div id="bathrooms" class="collapse">
           <ul class="nav nav-list">
-            <% @units.facets['current-city']['terms'].each do |facet| %>
+            <% @units.facets['current-bathroom']['terms'].each do |facet| %>
                 <%= render partial: 'units/facet', locals: {term: facet['term'],
                                                             count: facet['count'],
-                                                            name: City.find(facet['term']).name,
-                                                            search_option:'city_id'} %>
-            <% end %>
-          </ul>
-        </div>
-
-        <div class="nav-header" style="padding-top:8px;">
-          <a data-toggle="collapse" href="#states" class="btn btn-success btn-block" role="button">States</a>
-        </div>
-        <div id="states" class="collapse">
-          <ul class="nav nav-list">
-            <% @units.facets['current-state']['terms'].each do |facet| %>
-                <%= render partial: 'units/facet', locals: {term: facet['term'],
-                                                            count: facet['count'],
-                                                            name: State.find(facet['term']).name,
-                                                            search_option:'state_id'} %>
+                                                            name: facet['term'],
+                                                            search_option:'bathrooms'} %>
             <% end %>
           </ul>
         </div>

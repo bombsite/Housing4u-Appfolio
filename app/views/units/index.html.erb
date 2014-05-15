@@ -1,7 +1,11 @@
   <% title "Homepage" %>
+
   <div class="content">
+
     <div class="panel panel-default">
+
       <div class="panel-body">
+
         <div class="row">
           <div class="col-md-12">
             <%= render partial: 'units/advanced' %>
@@ -11,16 +15,9 @@
           <div class="col-md-4 results">
             <%= total_found(@units) %>
           </div>
-
         </div>
         <div class="row">
-
-          <% if @units.respond_to?(:facets) && @units.facets.present? %>
-            <div class="col-md-2">
-              <%= render partial: 'units/facets', locals: {total: @units.total} %>
-            </div>
-          <% end %>
-          <div class="<%= (@units.respond_to?(:facets) && @units.facets.present? ? 'col-md-10' : 'col-md-12') %>">
+          <div class="col-md-12">
             <%= render partial:'units/serp' %>
             <tr>
               <td colspan="2">
