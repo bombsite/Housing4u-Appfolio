@@ -1,6 +1,7 @@
 <% title "Roommate Matching" %>
 
 <% if @user.survey_completed %>
+    <h1>Roommate Matching Results</h1>
     <table class="table table-striped">
 
     <% User.all.each do |u| %>
