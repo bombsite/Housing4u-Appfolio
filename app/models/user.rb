@@ -10,11 +10,13 @@ class User < ActiveRecord::Base
 
   validates_format_of :phone_number, :with => /\d{10}/, :allow_blank => true, :if => :phone_number_changed?
 
+=begin
   serialize :bed_before_11pm_accepted
   serialize :wake_before_9am_accepted
   serialize :music_often_accepted
   serialize :visitors_often_accepted
   serialize :social_accepted
+=end
 
   def password_required?
     (!password.blank? && !password_confirmation.blank?) || new_record?

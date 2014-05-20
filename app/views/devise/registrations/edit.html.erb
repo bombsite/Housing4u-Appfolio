@@ -48,105 +48,124 @@
               </div>
 
               <% else %>
-                  <ul class="list-group">
-                    <li class="list-group-item">
+                  <table class="table table-striped">
+                    <tr>
+                      <td style="border-right:1px solid #DDD">
                       <div class="form-group">
                         <%= f.label :gender, "What is your gender?" %>
                         <%= f.select :gender, {"Other" => "Other", "Male" => "Male", "Female" => "Female"}, :class => "form-control" %>
                       </div>
-                    </li>
-                    <li class="list-group-item">
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td style="border-right:1px solid #DDD">
                       <div class="form-group">
                         <%= f.label :language_spoken, "What language do you mainly speak?" %>
                         <%= f.select :language_spoken, {"English" => "English", "Spanish" => "Spanish", "French" => "French", "Cantonese" => "Cantonese", "Mandarin" => "Mandarin"}, :class => "form-control" %>
                       </div>
-                    </li>
-                    <li class="list-group-item">
+                    </td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td style="border-right:1px solid #DDD">
                       <div class="form-group">
                         <%= f.label :smoker, "Are you a smoker?" %>
                         <%= f.select :smoker, {"Yes" => true, "No" => false}, :class => "form-control" %>
                       </div>
-                      <div class="form-group">
-                        <%= f.label :smoker_accepted, "Would you live with a smoker?" %>
-                        <%= f.select :smoker_accepted, {"Yes" => true, "No" => false}, :class => "form-control" %>
-                      </div>
-                    </li>
-                    <li class="list-group-item">
+                        <td>
+                              <div class="form-group">
+                                <%= f.label :smoker_accepted, "Would you live with a smoker?" %>
+                                <%= f.select :smoker_accepted, {"Yes" => "Yes", "No" => "No", "Don't Care" => "Dont Care"}, :class => "form-control" %>
+                              </div>
+                        </td>
+                    </td>
+                    </tr>
+                    <tr>
+                      <td style="border-right:1px solid #DDD">
                       <div class="form-group">
                         <%= f.label :pets, "Do you have pets?" %>
                         <%= f.select :pets, {"Yes" => true, "No" => false}, :class => "form-control" %>
                       </div>
-                      <div class="form-group">
-                        <%= f.label :pets_accepted, "Would you live with someone who has pets?" %>
-                        <%= f.select :pets_accepted, {"Yes" => true, "No" => false}, :class => "form-control" %>
-                      </div>
-                    </li>
-                    <li class="list-group-item">
+                        <td>
+                          <div class="form-group">
+                            <%= f.label :pets_accepted, "Would you live with someone who has pets?" %>
+                            <%= f.select :pets_accepted, {"Yes" => "Yes", "No" => "No", "Don't Care" => "Dont Care"}, :class => "form-control" %>
+                          </div>
+                        </td>
+                    </td>
+                    </tr>
+                    <tr>
+                      <td style="border-right:1px solid #DDD">
                       <div class="form-group">
                         <%= f.label :bed_before_11pm, "Do you go to bed before 11pm?" %>
                         <%= f.select :bed_before_11pm, {"Yes" => true, "No" => false}, :class => "form-control" %>
                       </div>
+                        <td>
                       <div class="form-group">
-                        <%= f.label :bed_before_11pm_accepted, "Accepted Answers:" %>
-                        <%= f.check_box :bed_before_11pm_accepted, { :multiple => true }, "Yes" %>
-                        <label for="user_bed_before_11pm_accepted_yes">Yes</label>
-                        <%= f.check_box :bed_before_11pm_accepted, { :multiple => true }, "No" %>
-                        <label for="user_bed_before_11pm_accepted_no">No</label>
+                        <%= f.label :bed_before_11pm_accepted, "Would you live with someone who goes to bed before 11pm?" %>
+                        <%= f.select :bed_before_11pm_accepted, {"Yes" => "Yes", "No" => "No", "Don't Care" => "Dont Care"}, :class => "form-control" %>
                       </div>
-                    </li>
-                    <li class="list-group-item">
+                          </td>
+                    </td>
+                    </tr>
+                    <tr>
+                      <td style="border-right:1px solid #DDD">
                       <div class="form-group">
                         <%= f.label :wake_before_9am, "Do you go to wake up before 9am?" %>
                         <%= f.select :wake_before_9am, {"Yes" => true, "No" => false}, :class => "form-control" %>
                       </div>
+                        <td>
                       <div class="form-group">
-                        <%= f.label :wake_before_9am_accepted, "Accepted Answers:" %>
-                        <%= f.check_box :wake_before_9am_accepted, { :multiple => true }, "Yes" %>
-                        <label for="user_wake_before_9am_accepted_yes">Yes</label>
-                        <%= f.check_box :wake_before_9am_accepted, { :multiple => true }, "No" %>
-                        <label for="user_wake_before_9am_accepted_no">No</label>
+                        <%= f.label :wake_before_9am_accepted, "Would you live with someone who wakes up before 9am?" %>
+                        <%= f.select :wake_before_9am_accepted, {"Yes" => "Yes", "No" => "No", "Don't Care" => "Dont Care"}, :class => "form-control" %>
                       </div>
-                    </li>
-                    <li class="list-group-item">
+                          </td>
+                    </td>
+                    </tr>
+                    <tr>
+                      <td style="border-right:1px solid #DDD">
                       <div class="form-group">
                         <%= f.label :music_often, "Do you play music often?" %>
                         <%= f.select :music_often, {"Yes" => true, "No" => false}, :class => "form-control" %>
                       </div>
+                        <td>
                       <div class="form-group">
-                        <%= f.label :music_often_accepted, "Accepted Answers:" %>
-                        <%= f.check_box :music_often_accepted, { :multiple => true }, "Yes" %>
-                        <label for="user_music_often_accepted_yes">Yes</label>
-                        <%= f.check_box :music_often_accepted, { :multiple => true }, "No" %>
-                        <label for="user_music_often_accepted_no">No</label>
+                        <%= f.label :music_often_accepted, "Would you live with someone who plays music often?" %>
+                        <%= f.select :music_often_accepted, {"Yes" => "Yes", "No" => "No", "Don't Care" => "Dont Care"}, :class => "form-control" %>
                       </div>
-                    </li>
-                    <li class="list-group-item">
+                          </td>
+                    </td>
+                    </tr>
+                    <tr>
+                      <td style="border-right:1px solid #DDD">
                       <div class="form-group">
                         <%= f.label :visitors_often, "Do you have visitors over often?" %>
                         <%= f.select :visitors_often, {"Yes" => true, "No" => false}, :class => "form-control" %>
                       </div>
+                        <td>
                       <div class="form-group">
-                        <%= f.label :visitors_often_accepted, "Accepted Answers:" %>
-                        <%= f.check_box :visitors_often_accepted, { :multiple => true }, "Yes" %>
-                        <label for="user_visitors_often_accepted_yes">Yes</label>
-                        <%= f.check_box :visitors_often_accepted, { :multiple => true }, "No" %>
-                        <label for="user_visitors_often_accepted_no">No</label>
+                        <%= f.label :visitors_often_accepted, "Would you live with someone who has visitors often?" %>
+                        <%= f.select :visitors_often_accepted, {"Yes" => "Yes", "No" => "No", "Don't Care" => "Dont Care"}, :class => "form-control" %>
                       </div>
-                    </li>
-                    <li class="list-group-item">
-                      <div class="form-group">
-                        <%= f.label :social, "Do you think the house is mainly for socializing?" %>
-                        <%= f.select :social, {"Yes" => true, "No" => false}, :class => "form-control" %>
-                      </div>
-                      <div class="form-group">
-                        <%= f.label :social_accepted, "Accepted Answers:" %>
-                        <%= f.check_box :social_accepted, { :multiple => true }, "Yes" %>
-                        <label for="user_social_accepted_yes">Yes</label>
-                        <%= f.check_box :social_accepted, { :multiple => true }, "No" %>
-                        <label for="user_social_accepted_no">No</label>
-                      </div>
-                    </li>
-                  </ul>
+                          </td>
+                    </td>
+                    </tr>
+                    <tr>
+                      <td style="border-right:1px solid #DDD">
+                          <div class="form-group">
+                            <%= f.label :social, "Do you think the house is mainly for socializing?" %>
+                            <%= f.select :social, {"Yes" => true, "No" => false}, :class => "form-control" %>
+                          </div>
+                        <td>
+                          <div class="form-group">
+                            <%= f.label :social_accepted, "Would you live with someone who uses the house mainly for socializing?" %>
+                            <%= f.select :social_accepted, {"Yes" => "Yes", "No" => "No", "Don't Care" => "Dont Care"}, :class => "form-control" %>
+                          </div>
+                          </td>
+                      </td>
+                    </tr>
+                  </table>
 
                   <div class="form-group">
                     <%= f.hidden_field :matching, :value => "true" %>
@@ -157,7 +176,7 @@
 
               <% end %>
 
-          <div><%= f.submit "Update", :class=>"btn btn-lg btn-success btn-block" %></div>
+          <div style="clear: both"><%= f.submit "Update", :class=>"btn btn-lg btn-success btn-block" %></div>
             </fieldset>
         <% end %>
 

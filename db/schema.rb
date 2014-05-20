@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 201405060000011) do
+ActiveRecord::Schema.define(version: 201405190000012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,13 +98,13 @@ ActiveRecord::Schema.define(version: 201405060000011) do
     t.boolean  "music_often",              default: false
     t.boolean  "visitors_often",           default: false
     t.boolean  "social",                   default: false
-    t.boolean  "smoker_accepted",          default: false
-    t.boolean  "pets_accepted",            default: false
-    t.text     "bed_before_11pm_accepted"
-    t.text     "wake_before_9am_accepted"
-    t.text     "music_often_accepted"
-    t.text     "visitors_often_accepted"
-    t.text     "social_accepted"
+    t.string   "smoker_accepted",          default: "No"
+    t.string   "pets_accepted",            default: "No"
+    t.string   "bed_before_11pm_accepted", default: "No"
+    t.string   "wake_before_9am_accepted", default: "No"
+    t.string   "music_often_accepted",     default: "No"
+    t.string   "visitors_often_accepted",  default: "No"
+    t.string   "social_accepted",          default: "No"
     t.boolean  "survey_completed",         default: false
     t.string   "fb_photo_url"
   end
