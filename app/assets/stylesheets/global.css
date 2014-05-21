@@ -49,3 +49,8 @@
 .col-lg-4 {
     padding-top:20px;
 }
+
+.description span {
+    font-weight: bold;
+    background-color: #ffff00;
+}

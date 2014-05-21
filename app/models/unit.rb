@@ -85,7 +85,7 @@ class Unit < ActiveRecord::Base
       from (page -1) * search_size
       size search_size
 
-      highlight :ad_content, :options => { :tag => '<strong>' }
+      highlight :ad_content, :options => { :tag => '<span>' }
 
 
       #facets
