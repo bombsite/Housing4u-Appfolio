@@ -20,6 +20,7 @@ class UnitsController < ApplicationController
 
   def show
     @unit = Unit.find(params[:id])
+    @user = current_user
   end
 
   def search

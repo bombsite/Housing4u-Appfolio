@@ -94,12 +94,12 @@
           </td>
           <td>
             <div class="row">
-              <h4 style="display:none"><img src="http://graph.facebook.com/100000060976726/picture" width="100" height="80">
-                <a href="/viewuser?id=2610">havasukid@gmail.com</a>
-              </h4>
               <h3><img src="http://graph.facebook.com/1059545421/picture" width="100" height="80">
                 <a href="/viewuser?id=2612">tww_91@yahoo.com</a>
               </h3>
+              <h4 style="display:none"><img src="<%= @user.fb_photo_url %>" width="100" height="80">
+                <a href="/viewuser?id=<%= @user.id %>"><%= @user.email %></a>
+              </h4>
               <br><button class="btn btn-success" role="button">I'm Interested!</button>
               
             </div>
