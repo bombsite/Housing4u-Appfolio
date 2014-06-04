@@ -4,17 +4,17 @@
     <h1>Your Top 5 Roomates:</h1>
     <table class="table table-striped">
       <% for k in 0..4 %>
-        <% if @array[k*4] != nil %>
-          <% if @array[k*4 + 1] != nil %>
-          <tr>
-            <td><img src="<%= @array[k*4 + 1] %>" width="100" height="100"></td>
-          <% else %>
-          <tr>
-            <td><img src="http://i61.tinypic.com/2939d1h.jpg" width="100" height="100"></td>
+          <% if @array[k*4] != nil %>
+              <% if @array[k*4 + 1] != nil %>
+                  <tr>
+                    <td><img src="<%= @array[k*4 + 1] %>" width="100" height="100"></td>
+              <% else %>
+                  <tr>
+                    <td><img src="http://i61.tinypic.com/2939d1h.jpg" width="100" height="100"></td>
+              <% end %>
+              <td><a href="/viewuser?id=<%=@array[k*4 + 2]%>"><%=@array[k*4 + 3]%></a> matched you <%= ((@array[k*4]/9.0)*100).to_int %>%</td>
+              </tr>
           <% end %>
-            <td><a href="/viewuser?id=<%=@array[k*4 + 2]%>"><%=@array[k*4 + 3]%></a> matched you <%= ((@array[k*4]/9.0)*100).to_int %>%</td>
-          </tr>
-        <% end %>
       <% end %>
     </table>
 <% else %>
